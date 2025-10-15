@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" id="stylesheet" href="creativeDark.css">
+    <script>
+        function toggleText() {
+            var text = document.getElementById("secret");
+            var button = document.getElementById("secretButton")
+            if (text.innerText === "") {
+                text.innerText = "This is a secret text :-)";
+                button.innerText = "Hide";
+            } else {
+                text.innerText = "";
+                button.innerText = "ReadMe";
+            }
+        }
+        function toggleStyle() {
+            var currentStylesheet = document.getElementById("stylesheet");
+            var profile = document.getElementById("profile")
+            var topImage = document.getElementById("topImage")
+            if (currentStylesheet.getAttribute("href") === "creativeLight.css") {
+                currentStylesheet.href = "creativeDark.css";
+                profile.src = "Assets/totoro2.jpg";
+                topImage.src = "Assets/totoro.jpg";
+            } else {
+                currentStylesheet.href = "creativeLight.css";
+                profile.src = "Assets/ponyo2.jpg";
+                topImage.src = "Assets/ponyo.jpg";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="Assets/totoro.jpg" id="topImage" alt="Banner" class="banner">
+        <p>test</p>
+        <div class="banner-text">
+            <h1 class="shadow">CSC209 Homework 2 Creative</h1>
+        </div>
+    </div>
+    <menu>
+        <img src="Assets/totoro2.jpg" id="profile" class="shadow, profile">
+        <p><a href="../../../startPage.html">Home</a></p>
+        <p><a href="https://github.com/wentingchua" target="_blank">My Github</a></p>
+        <p><a href="dummyPage.html">Secret page 1</a></p>
+        <p><a href="dummyPage.html">Secret page 2</a></p>
+        <button type="button" onclick="toggleStyle()">Switch style</button>
+    </menu>
+    <content>
+        <header>Fall 2025 classes</header>
+        <p id="secret"></p>
+        <button id="secretButton" type="button" onclick="toggleText()" class="shadow">ReadMe</button>
+        <table class="shadow">
+            <tr>
+                <th style="width: 15%">Class</th>
+                <th style="width: 15%">Date/Time</th>
+                <th style="width: 15%">Location</th>
+                <th style="width: 15%">Course syllabus</th>
+                <th style="width: 15%">Lecture slides</th>
+                <th style="width: 15%">Link to course page (Only registered students can access this page)</th>
+            </tr>
+            <tr>
+                <td>CSC209 Web Programming</td>
+                <td>Tues, Thurs<br>
+                    10:50PM - 12:05PM</td>
+                <td>Ford 241</td>
+                <td><a href="Assets/csc209Syllabus.pdf" target="_blank">CSC209 Syllabus</a></td>
+                <td><a href="lecturePage.html" target="_blank">Lecture 1</a></td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53577" target="_blank">Moodle page</a></td>
+            </tr>
+            <tr>
+                <td>CSC262 Operating Systems</td>
+                <td>Tues, Thurs<br>
+                    2:45PM-4:00PM</td>
+                <td>Ford 241</td>
+                <td><a href="Assets/csc262Syllabus.pdf" target="_blank">CSC262 Syllabus</a></td>
+                <td>
+                    <a href="lecturePage.html" target="_blank">Lecture 1</a><br>
+                    <a href="lecturePage2.html" target="_blank">Lecture 2</a><br>
+                    <a href="lecturePage3.html" target="_blank">Lecture 3</a>
+                </td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53584" target="_blank">Moodle page</a></td>
+            </tr>
+            <tr>
+                <td>GOV240 NGOs in World Politics</td>
+                <td>Mon, Wed<br>
+                    10:50PM - 12:05PM</td>
+                <td>Seelye 211</td>
+                <td><a href="Assets/gov240Syllabus.pdf" target="_blank">GOV240 Syllabus</a></td>
+                <td><a href="lecturePage.html" target="_blank">Lecture 1</a></td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53853" target="_blank">Moodle page</a></td>
+            </tr>
+            <tr>
+                <td>COMPSCI 485 Applications of NLP</td>
+                <td>Mon, Wed<br>
+                    2:30PM - 3:45PM</td>
+                <td>Umass Holdsworth Hall Room 203</td>
+                <td><a href="Assets/compsci485Syllabus.pdf" target="_blank">COMPSCI485 Syllabus</a></td>
+                <td><a href="lecturePage.html" target="_blank">Lecture 1</a><br>
+                    <a href="lecturePage2.html" target="_blank">Lecture 2</a><br>
+                </td>
+                <td><a href="https://umamherst.instructure.com/courses/32517" target="_blank">Canvas page</a></td>
+            </tr>
+            <tr>
+                <td>AST103 Sky and Telescope</td>
+                <td>Mon<br>
+                    7:00PM - 10:00PM</td>
+                <td>McConnell 406</td>
+                <td><a href="Assets/ast103Syllabus.pdf" target="_blank">AST103 Syllabus</a></td>
+                <td><a href="lecturePage.html" target="_blank">Lecture 1</a></td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53452" target="_blank">Moodle page</a></td>
+            </tr>
+        </table>
+    </content>
+    <footer class="bottom-bar">
+        <p>Image extracted from:
+            <a href="https://www.ghibli.jp/works/ponyo/#frame" target="_blank">https://www.ghibli.jp/works/ponyo/#frame</a>
+        </p>
+    </footer>
+</body>
+
+</html>

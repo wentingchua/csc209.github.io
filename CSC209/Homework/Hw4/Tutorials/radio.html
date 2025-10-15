@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    Press button to show cat:  <input type="radio" id="myRadio" onclick="myFunction()">
+    
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myRadio");
+            const img = document.createElement("img");
+            img.setAttribute("src", "../../../Assets/cat.jpg");
+            img.setAttribute("width", 100);
+            img.setAttribute("height", 100)
+            if (x.checked) {
+                document.body.appendChild(img);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

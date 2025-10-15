@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" id="stylesheet" href="css/technical.css">
+</head>
+
+<body>
+    <label for="squareSpeed">Square speed</label>
+    <select id="squareSpeed">
+        <option value=2.5>Fast</option>
+        <option value=5>Medium</option>
+        <option value=10>Slow</option>
+    </select>
+    <button id="move" onclick="handleButtonPressed()">Move all squares</button>
+    <br><br>
+    <div id="myContainer">
+    </div>
+    <script src="js/technical.js"></script>
+    <script>createSquares()</script>
+</body>
+
+</html>

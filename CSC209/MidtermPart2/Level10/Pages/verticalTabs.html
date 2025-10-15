@@ -1,0 +1,41 @@
+<!-- For this Level, I have chosen to "do something similar as in Level 9 but using Vertical Tabs" -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/verticalTabs.css">
+    <script>
+        NRCITIES = 10;
+        CITIES = [
+            'London',
+            'Paris',
+            'Tokyo',
+            'Singapore' //used as dummy value for NRCITIES beyond 4
+        ];
+        DESC = [
+            'London is the capital city of England.',
+            'Paris is the capital of France.',
+            'Tokyo is the capital of Japan.',
+            'Singapore is the capital of Singapore' //used as dummy value for NRCITIES beyond 4
+        ]
+    </script>
+    <script src="../js/verticalTabs.js"></script>
+</head>
+
+<body>
+
+    <h2>Vertical Tabs</h2>
+    <p>Click on the buttons inside the tabbed menu:</p>
+
+    <div id="buttons" class="tab">
+    </div>
+
+    <script>
+        createTabs();
+    </script>
+
+</body>
+
+</html>

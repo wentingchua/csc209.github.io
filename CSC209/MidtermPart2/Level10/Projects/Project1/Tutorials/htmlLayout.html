@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <title>CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: pink;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        nav {
+            float: left;
+            width: 30%;
+            height: 300px;
+            background: lightpink;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: aliceblue;
+            height: 300px;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: bisque;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /*Responsive layout - makes the two columns stack on top of each other on smaller screens*/
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML Layout</h1>
+    <p>Elements included:</p>
+    <ol>
+        <li>header</li>
+        <li>navigation bar</li>
+        <li>two columns/boxes</li>
+        <li>footer</li>
+    </ol>
+    <header>
+        <h2>Animals</h2>
+    </header>
+    <section>
+        <p>testing</p>
+        <nav>
+            <ul>
+                <li><a href="#">Elephant</a></li>
+                <li><a href="#">Lion</a></li>
+                <li><a href="#">Dog</a></li>
+            </ul>
+        </nav>
+        <article>
+            <h1>Elephant</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </article>
+    </section>
+    <footer>
+        <p>Footer</p>
+    </footer>
+</body>
+
+</html>

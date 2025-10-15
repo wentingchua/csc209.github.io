@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" id="stylesheet" href="css/creative.css">
+
+<head>
+    <script>
+        const NRSTEPS = 100;
+    </script>
+    <script src="js/globalVariables.js"></script>
+    <script src="js/creative.js"></script>
+</head>
+
+<body>
+    <button onclick="handleChange()()">Change position</button>
+    <button onclick="animateCircles()">Animate</button>
+    <button onclick="resetToOriginalPosition()">Reset</button>
+    <br> <br>
+    <label for="numOfPoints">No. of points:</label>
+    <input id="numOfPoints" type="text" onchange="handleChange()" value=5>
+    <label for="state">Square speed</label>
+    <select id="state" onchange="handleChange()">
+        <option value="solid">Solid</option>
+        <option value="liquid">Liquid</option>
+        <option value="gas">Gas</option>
+    </select>
+    <label for="showTrace">Show trace ?</label>
+    <input id="showTrace" type="checkbox">
+    <br> <br>
+    <canvas id="myCanvas" width="500" height="500">
+    </canvas>
+    <script>drawSolidParticles()</script>
+</body>
+
+</html>

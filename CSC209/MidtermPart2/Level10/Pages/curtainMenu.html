@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/curtainMenu.css">
+    <script>
+        NRPROJECTS = 10;
+        REFS = [
+            "../Projects/Project1/hw2Entry.html",
+            "../Projects/Project2/hw3Entry.html",
+            "https://wentingchua.github.io/csc209.github.io/CSC209/startPage.html",
+            "../home.html"
+        ];
+        LABELS = [
+            "Project 1",
+            "Project 2",
+            "Github",
+            "home"
+        ];
+    </script>
+    <script src="../js/curtainMenu.js"></script>
+</head>
+
+<body>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <div id="menu" class="overlay-content">
+        </div>
+    </div>
+
+    <h2>Fullscreen Overlay Nav Example</h2>
+    <p>Click on the element below to open the fullscreen overlay navigation menu.</p>
+    <p>In this example, the navigation menu will slide in, from left to right:</p>
+    <span style="font-size:30px;cursor:pointer" onclick="toggleNav()">&#9776; open</span>
+    <script>addLinks()</script>
+</body>
+
+</html>

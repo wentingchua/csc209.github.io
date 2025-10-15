@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" id="stylesheet" href="css/technical.css">
+
+<head>
+    <script>
+        const NRSTEPS = 30;
+    </script>
+    <script src="js/globalVariables.js"></script>
+    <script src="js/technical.js"></script>
+</head>
+
+<body>
+    <button onclick="spawnCirclesRandomly()">Change position</button>
+    <button onclick="animateCircles()">Animate</button>
+    <button onclick="resetToOriginalPosition()">Reset</button>
+    <br> <br>
+    <label for="numOfPoints">No. of points:</label>
+    <input id="numOfPoints" type="text" onchange="spawnCirclesRandomly()" value=5>
+    <label for="showTrace">Show trace ?</label>
+    <input id="showTrace" type="checkbox">
+    <br> <br>
+    <canvas id="myCanvas" width="500" height="500">
+    </canvas>
+    <script>spawnCirclesRandomly()</script>
+</body>
+
+</html>

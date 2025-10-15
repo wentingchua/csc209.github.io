@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" id="stylesheet" href="css/technicalLight.css">
+    <script src="js/technical.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="Assets/light.jpg" id="topImage" alt="Banner" class="banner">
+        <div class="banner-text">
+            <h1 class="shadow">CSC209 Homework 3 Technical</h1>
+        </div>
+    </div>
+    <menu id="horiMenu">
+        <p><a href="../../../startPage.html">Home</a></p>
+        <p><a href="https://github.com/wentingchua" target="_blank">My Github</a></p>
+        <p><a href="html/dummyPage.html">Secret page 1</a></p>
+        <p><a href="html/dummyPage.html">Secret page 2</a></p>
+        <button type="button" onclick="toggleStyle()">Switch style</button>
+    </menu>
+    <verticalMenu id="vertMenu" style="display: none;">
+        <p><a href="../../../startPage.html">Home</a></p>
+        <p><a href="https://github.com/wentingchua" target="_blank">My Github</a></p>
+        <p><a href="html/dummyPage.html">Secret page 1</a></p>
+        <p><a href="html/dummyPage.html">Secret page 2</a></p>
+        <button type="button" onclick="toggleStyle()">Switch style</button>
+    </verticalMenu>
+    <content>
+        <header>Fall 2025 classes</header>
+        <div class="row">
+            <div class="box">
+                <p style="color: cadetblue;">Click on the buttons to print messages.</p>
+                <p id="secret"></p>
+                <p id="credits"></p>
+                <p id="date"></p>
+            </div>
+            <button id="secretButton" type="button" onclick="toggleText()" class="shadow">ReadMe</button>
+            <button id="creditButton" type="button" onclick="showCredits()" class="shadow">Credits</button>
+            <button id="dateButton" type="button" onclick="toggleDate()" class="shadow">Show date</button>
+            <button id="scheduleButton" type="button" onclick="toggleSchedule()" class="shadow">Hide Schedule</button>
+            <button id="menuLayoutButton" type="button" onclick="toggleMenu()" class="shadow">Change menu
+                layout</button>
+            <div class="filter">
+                <input type="checkbox" id="all" checked="true" onclick="handleAllFilterCheck()">
+                <label for="all">All labels</label> <br>
+                <input type="checkbox" id="className" checked="true" onclick="handleFilterCheck('className')">
+                <label for="className">Class Name</label> <br>
+                <input type="checkbox" id="dateTime" checked="true" onclick="handleFilterCheck('dateTime')">
+                <label for="dateTime">Date/Time</label> <br>
+                <input type="checkbox" id="location" checked="true" onclick="handleFilterCheck('location')">
+                <label for="location">Location</label> <br>
+                <input type="checkbox" id="courseSyllabus" checked="true" onclick="handleFilterCheck('courseSyllabus')">
+                <label for="courseSyllabus">Course syllabus</label> <br>
+                <input type="checkbox" id="lectureSlide" checked="true" onclick="handleFilterCheck('lectureSlide')">
+                <label for="lectureSlide">Lecture slides</label> <br>
+                <input type="checkbox" id="courseLink" checked="true" onclick="handleFilterCheck('courseLink')">
+                <label for="courseLink">Link to course page</label>
+            </div>
+        </div>
+        <table id="schedule" class="shadow">
+            <tr>
+                <th style="width: 15%">Class Name</th>
+                <th style="width: 15%">Date/Time</th>
+                <th style="width: 15%">Location</th>
+                <th style="width: 15%">Course syllabus</th>
+                <th style="width: 15%">Lecture slides</th>
+                <th style="width: 15%">Link to course page (Only registered students can access this page)</th>
+                <th style="width: 15%">Show/Hide</th>
+            </tr>
+            <tr id="csc209">
+                <td>CSC209 Web Programming</td>
+                <td>Tues, Thurs<br>
+                    10:50PM - 12:05PM</td>
+                <td>Ford 241</td>
+                <td><a href="Assets/csc209Syllabus.pdf" target="_blank">CSC209 Syllabus</a></td>
+                <td><a href="html/lecturePage.html" target="_blank">Lecture 1</a></td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53577" target="_blank">Moodle page</a></td>
+                <td><button type="button" onclick="hideRow('csc209')">Hide</button></td>
+            </tr>
+            <tr id="csc262">
+                <td>CSC262 Operating Systems</td>
+                <td>Tues, Thurs<br>
+                    2:45PM-4:00PM</td>
+                <td>Ford 241</td>
+                <td><a href="Assets/csc262Syllabus.pdf" target="_blank">CSC262 Syllabus</a></td>
+                <td>
+                    <a href="html/lecturePage.html" target="_blank">Lecture 1</a><br>
+                    <a href="html/lecturePage2.html" target="_blank">Lecture 2</a><br>
+                    <a href="html/lecturePage3.html" target="_blank">Lecture 3</a>
+                </td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53584" target="_blank">Moodle page</a></td>
+                <td><button type="button" onclick="hideRow('csc262')">Hide</button></td>
+            </tr>
+            <tr id="gov240">
+                <td>GOV240 NGOs in World Politics</td>
+                <td>Mon, Wed<br>
+                    10:50PM - 12:05PM</td>
+                <td>Seelye 211</td>
+                <td><a href="Assets/gov240Syllabus.pdf" target="_blank">GOV240 Syllabus</a></td>
+                <td><a href="html/lecturePage.html" target="_blank">Lecture 1</a></td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53853" target="_blank">Moodle page</a></td>
+                <td><button type="button" onclick="hideRow('gov240')">Hide</button></td>
+            </tr>
+            <tr id="compsci485">
+                <td>COMPSCI 485 Applications of NLP</td>
+                <td>Mon, Wed<br>
+                    2:30PM - 3:45PM</td>
+                <td>Umass Holdsworth Hall Room 203</td>
+                <td><a href="Assets/compsci485Syllabus.pdf" target="_blank">COMPSCI485 Syllabus</a></td>
+                <td><a href="html/lecturePage.html" target="_blank">Lecture 1</a><br>
+                    <a href="html/lecturePage2.html" target="_blank">Lecture 2</a><br>
+                </td>
+                <td><a href="https://umamherst.instructure.com/courses/32517" target="_blank">Canvas page</a></td>
+                <td><button type="button" onclick="hideRow('compsci485')">Hide</button></td>
+            </tr>
+            <tr id="ast103">
+                <td>AST103 Sky and Telescope</td>
+                <td>Mon<br>
+                    7:00PM - 10:00PM</td>
+                <td>McConnell 406</td>
+                <td><a href="Assets/ast103Syllabus.pdf" target="_blank">AST103 Syllabus</a></td>
+                <td><a href="html/lecturePage.html" target="_blank">Lecture 1</a></td>
+                <td><a href="https://moodle.smith.edu/course/view.php?id=53452" target="_blank">Moodle page</a></td>
+                <td><button type="button" onclick="hideRow('ast103')">Hide</button></td>
+            </tr>
+        </table>
+    </content>
+</body>
+
+</html>

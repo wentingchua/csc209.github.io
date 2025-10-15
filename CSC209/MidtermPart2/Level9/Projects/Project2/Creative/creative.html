@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" id="stylesheet" href="css/creative.css">
+    <script src="js/creative.js"></script>
+</head>
+
+<body>
+    <div class="playground">
+        <h1>Typing Game (?)</h1>
+        <h2 id="question" class="purple">Can we go to the park.</h2>
+        <h2 id="remark"></h2>
+        <input type="text" id="answer" class="input">
+        <button type="button" onclick="handleSubmit()">Submit</button>
+        <p>The sentences used in this game is inspired by the random sentences from <a
+                href="https://stackoverflow.com/questions/13767461/random-array-of-sentences">https://stackoverflow.com/questions/13767461/random-array-of-sentences</a>
+        </p>
+    </div>
+    <div class="scoreboard">
+        <h1>Your current score:</h1>
+        <score id="score">0</score>
+    </div>
+    <div class="instructions">
+        <h1>How to play?</h1>
+        <ol>
+            <li>Type out what you see in purple.</li>
+            <li>Enter the submit button.</li>
+        </ol>
+    </div>
+</body>
+
+</html>

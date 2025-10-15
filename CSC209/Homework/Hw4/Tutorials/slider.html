@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <input type="range" id="myRange" value="0" onchange="myFunction()">
+    <p>Score: </p>
+    <p id="score"></p>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myRange").value;
+            document.getElementById("score").innerText = x;
+        }
+    </script>
+
+</body>
+
+</html>

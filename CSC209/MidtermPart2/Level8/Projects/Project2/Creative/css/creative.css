@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.purple {
+    color: purple;
+    padding: 10px;
+}
+
+.input {
+    color: blue;
+    height: 30px;
+    width: 80%;
+    font-size: 26px;
+    margin: 20px;
+}
+
+.playground {
+    float: left;
+    width: 66%;
+    height: 100vh;
+    background-color: pink;
+    text-align: center;
+    padding: 2%;
+}
+
+.playground p {
+    font-size: 10px;
+}
+
+.scoreboard {
+    float: right;
+    width: 26%;
+    padding: 2%;
+    height: 70vh;
+    background-color: powderblue;
+    text-align: center;
+}
+
+.scoreboard score {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.instructions {
+    float: right;
+    width: 26%;
+    padding: 2%;
+    height: 30vh;
+}

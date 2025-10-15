@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border-width: 0;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffe6fb;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f1aee6;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Homework 3 Tutorials</h1>
+
+    <h2>Using JS to change HTML attribute values</h2>
+    <p style="font-size: 100px" id="emoji">&#128035</p>
+    <button onclick="document.getElementById('emoji').innerText='&#128020'">Turn into chicken</button>
+    <button onclick="document.getElementById('emoji').innerText='&#128035'">Turn into chick</button>
+    <button onclick="document.getElementById('emoji').innerText=''">Remove chick or chicken</button>
+    <button onclick="document.getElementById('emoji').innerText='&#128035'">Bring back chick</button>
+
+    <h2>Using external JS files</h2>
+    <p id="demo">test</p>
+    <script src="changeText.js"></script>
+    <button onclick="changeText()">Change text</button>
+
+    <h2>Using alert</h2>
+    <button onclick="alert('This is an alert.')">Show alert</button>
+
+</body>
+
+</html>
