@@ -15,13 +15,12 @@
                         <a class="nav-link" href="../homePage.html">Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.html">Your Cart</a>
+                        <a class="nav-link active" href="cart.html.php">Your Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="profile.html">Sign in / Register</a>
+                        <a class="nav-link" href="profile.html.php">Sign in / Register</a>
                     </li>
                 </ul>
-                
             </div>
 
         </div>

@@ -1,9 +1,9 @@
 {
-    "a0000": {
+    "a0": {
         "username": "admin",
         "password": "admin"
     },
-    "u0001": {
+    "u1": {
         "username": "alice",
         "password": "123",
         "email": "alice@gmail.com",
@@ -24,5 +24,14 @@
         "reviews": [
             "r0001"
         ]
+    },
+    "u2": {
+        "username": null,
+        "password": "123",
+        "email": "benny@a.com",
+        "contact": "3124676754",
+        "shipping_address": "treehouse",
+        "cart": [],
+        "reviews": []
     }
 }
