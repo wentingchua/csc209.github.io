@@ -1,0 +1,28 @@
+{
+    "a0000": {
+        "username": "admin",
+        "password": "admin"
+    },
+    "u0001": {
+        "username": "alice",
+        "password": "123",
+        "email": "alice@gmail.com",
+        "contact": 12342341324,
+        "shipping_address": "Far far away",
+        "cart": [
+            {
+                "product_id": "p0001",
+                "category": "food",
+                "quantity": 1
+            },
+            {
+                "product_id": "p0002",
+                "category": "skincare",
+                "quantity": 3
+            }
+        ],
+        "reviews": [
+            "r0001"
+        ]
+    }
+}

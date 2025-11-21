@@ -1,0 +1,16 @@
+{
+    "p0001": {
+        "title": "laniege lip balm",
+        "price": 20.99,
+        "stock": 100,
+        "description": "Very good lip balm.",
+        "reviews": ["r0001", "r0002"]
+    },
+    "p0002": {
+        "title": "laniege moisturizer",
+        "price": 20.99,
+        "stock": 100,
+        "description": "Very good moisturizer.",
+        "reviews": []
+    }
+}
