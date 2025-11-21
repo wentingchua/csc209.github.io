@@ -1,0 +1,34 @@
+[
+    {
+        "username": "admin",
+        "isAdmin": true,
+        "password": "admin",
+        "loggedtimes": 0,
+        "minuteslogged": []
+    },
+    {
+        "username": "alice",
+        "isAdmin": false,
+        "password": "password",
+        "loggedtimes": 3,
+        "minuteslogged": [
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "username": "carol",
+        "isAdmin": false,
+        "password": "letmein",
+        "loggedtimes": 0,
+        "minuteslogged": []
+    },
+    {
+        "username": "erin",
+        "isAdmin": false,
+        "password": "0101",
+        "loggedtimes": 0,
+        "minuteslogged": []
+    }
+]

@@ -1,0 +1,51 @@
+[
+    {
+        "username": "alice",
+        "isAdmin": false,
+        "password": "password",
+        "loggedtimes": 26,
+        "minuteslogged": [
+            12,
+            8,
+            19,
+            33,
+            22,
+            0,
+            0,
+            0,
+            0,
+            2,
+            2
+        ]
+    },
+    {
+        "username": "carol",
+        "isAdmin": false,
+        "password": "letmein",
+        "loggedtimes": 9,
+        "minuteslogged": [
+            16,
+            21,
+            38,
+            0
+        ]
+    },
+    {
+        "username": "erin",
+        "isAdmin": false,
+        "password": "0101",
+        "loggedtimes": 2,
+        "minuteslogged": [
+            27
+        ]
+    },
+    {
+        "username": "admin",
+        "isAdmin": true,
+        "password": "admin",
+        "loggedtimes": 8,
+        "minuteslogged": [
+            27
+        ]
+    }
+]
