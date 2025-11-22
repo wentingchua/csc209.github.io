@@ -25,7 +25,7 @@ function registerUser($username, $password, $email, $contact, $shipping_address)
     $users[$user_id] = $new_user;
     $updated_json_data = json_encode($users);
     file_put_contents($json_path, $updated_json_data);
-    header("Location: ../../homePage.html");
+    header("Location: ../../homePage.html.php");
 }
 registerUser($username, $password, $email, $contact, $shipping_address);
 ?>

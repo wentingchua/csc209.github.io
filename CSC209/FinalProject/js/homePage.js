@@ -88,3 +88,8 @@ function makeProductCards(category, products) {
 
     productDiv.appendChild(row);
 }
+
+function handleAddToCartButtonPressed() {
+    
+}
+

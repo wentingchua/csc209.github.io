@@ -26,7 +26,7 @@ if ($item) {
     $_SESSION['user_id'] = $user_id;
     $_SESSION['isAdmin'] = $isAdmin;
     
-    $target_path = "Location: ../../homePage.html";
+    $target_path = "Location: ../../homePage.html.php";
     header($target_path);
 
     exit;
