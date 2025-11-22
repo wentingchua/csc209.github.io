@@ -38,10 +38,64 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 
     <div class="container">
         <?php getProductsInfo() ?>
+        <!-- Additional feature for admin -->
+        <?php if ($isAdmin): ?>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Add
+                product</button>
+        <?php else: ?>
+        <?php endif; ?>
+        <!-- Add Product Modal -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProductModal">Add Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="php/homePage/addProduct.php" method="POST">
+                            <!-- Dropdown for inside new product modal -->
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownButtonNewProduct" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select category
+                                </button>
+                                <div id="categoryDropdownNewProduct"></div>
+                            </div>
+                            <input type="hidden" name="category" id="category">
+                            <script>makeDropdownForNewProduct(<?php echo json_encode($productCategories) ?>)</script>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="text" class="form-control" id="price" name="price" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input type="text" class="form-control" id="stock" name="stock" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"
+                                    required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" id="image" name="image">
+                            </div>
+                            <button type="submit" class="btn btn-success">Add Product</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Product Category Dropdown -->
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+                id="dropdownButton" aria-expanded="false">
                 Select category
             </button>
             <div id="categoryDropdown"></div>

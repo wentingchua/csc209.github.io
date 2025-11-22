@@ -16,6 +16,8 @@ function makeDropdown(productCategories) {
 }
 
 function handleCategorySelect(category) {
+    const dropdownButton = document.getElementById("dropdownButton");
+    dropdownButton.innerText = category;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         products = JSON.parse(this.responseText)
@@ -89,7 +91,25 @@ function makeProductCards(category, products) {
     productDiv.appendChild(row);
 }
 
-function handleAddToCartButtonPressed() {
-    
+function makeDropdownForNewProduct(productCategories) {
+    const dropdown = document.getElementById("categoryDropdownNewProduct");
+    dropdown.innerHTML = '';
+    const ulWrapper = document.createElement("ul");
+    ulWrapper.setAttribute("class", "dropdown-menu");
+    for (let i = 0; i < productCategories.length; i++) {
+        const linkWrapper = document.createElement("li");
+        const aWrapper = document.createElement("a");
+        aWrapper.setAttribute("class", "dropdown-item");
+        aWrapper.setAttribute("onclick", `handleCategorySelectedNewProduct('${productCategories[i]}')`)
+        aWrapper.innerText = productCategories[i]
+        linkWrapper.appendChild(aWrapper);
+        ulWrapper.appendChild(linkWrapper);
+    }
+    dropdown.appendChild(ulWrapper);
 }
 
+function handleCategorySelectedNewProduct(category) {
+    const dropdownButton = document.getElementById("dropdownButtonNewProduct");
+    dropdownButton.innerText = category;
+    document.getElementById("category").value = category;
+}
