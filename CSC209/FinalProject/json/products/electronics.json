@@ -1,0 +1,44 @@
+{
+    "p3": {
+        "title": "Type C cable",
+        "price": 3.99,
+        "stock": 100,
+        "description": "Very Type C cable.",
+        "reviews": []
+    },
+    "p4": {
+        "title": "Lightning C cable",
+        "price": 2.99,
+        "stock": 100,
+        "description": "Very good Lightning C cable.",
+        "reviews": []
+    },
+    "p7": {
+        "title": "Type C cable",
+        "price": 3.99,
+        "stock": 100,
+        "description": "Very Type C cable.",
+        "reviews": []
+    },
+    "p8": {
+        "title": "Lightning C cable",
+        "price": 2.99,
+        "stock": 100,
+        "description": "Very good Lightning C cable.",
+        "reviews": []
+    },
+    "p9": {
+        "title": "Type C cable",
+        "price": 3.99,
+        "stock": 100,
+        "description": "Very Type C cable.",
+        "reviews": []
+    },
+    "p10": {
+        "title": "Lightning C cable",
+        "price": 2.99,
+        "stock": 100,
+        "description": "Very good Lightning C cable.",
+        "reviews": []
+    }
+}

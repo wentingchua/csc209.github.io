@@ -41,7 +41,7 @@
     </div>
     <script>
         makeDropdown(<?php echo json_encode($productCategories) ?>)
-        handleCategorySelect("skincare") //default
+        handleCategorySelect(<?php echo json_encode($productCategories[0]) ?>) //default
     </script>
 </body>
 

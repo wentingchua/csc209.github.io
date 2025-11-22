@@ -1,0 +1,16 @@
+{
+    "p5": {
+        "title": "Trash bag",
+        "price": 99999,
+        "stock": 1,
+        "description": "Limited edition trash bag.",
+        "reviews": []
+    },
+    "p6": {
+        "title": "BIG BIG BAG",
+        "price": 0.99,
+        "stock": 10000000,
+        "description": "Plzzz help to clear stock",
+        "reviews": []
+    }
+}
