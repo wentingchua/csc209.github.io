@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../homePage.html">Our Products</a>
+                        <a class="nav-link" href="../homePage.html.php">Our Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="cart.html.php">Your Cart</a>
