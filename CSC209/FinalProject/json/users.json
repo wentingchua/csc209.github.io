@@ -6,31 +6,36 @@
     "u1": {
         "username": "alice",
         "password": "123",
-        "email": "alice@gmail.com",
-        "contact": 12342341324,
-        "shipping_address": "Far far away",
-        "cart": [
-            {
-                "product_id": "p0001",
-                "category": "food",
-                "quantity": 1
-            },
-            {
-                "product_id": "p0002",
-                "category": "skincare",
-                "quantity": 3
-            }
-        ],
-        "reviews": [
-            "r0001"
-        ]
+        "email": "wqer",
+        "contact": "2343",
+        "shipping_address": "frge",
+        "cart": [],
+        "reviews": []
     },
     "u2": {
-        "username": null,
+        "username": "benny",
         "password": "123",
         "email": "benny@a.com",
         "contact": "3124676754",
         "shipping_address": "treehouse",
+        "cart": [],
+        "reviews": []
+    },
+    "u3": {
+        "username": "aa",
+        "password": "123",
+        "email": "ewqf",
+        "contact": "3r2",
+        "shipping_address": "gRGBERGVB",
+        "cart": [],
+        "reviews": []
+    },
+    "u4": {
+        "username": "glenys",
+        "password": "123",
+        "email": "eqwrhg",
+        "contact": "13245dwa",
+        "shipping_address": "fegd",
         "cart": [],
         "reviews": []
     }

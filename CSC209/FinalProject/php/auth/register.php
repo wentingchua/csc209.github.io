@@ -9,7 +9,7 @@ $shipping_address = $_POST["shipping_address"] ?? '';
 
 function registerUser($username, $password, $email, $contact, $shipping_address)
 {
-    $user_id = generateID("user");
+    $user_id = generateIDandIncrementCount("users");
     $json_path = "../../json/users.json";
     $json_data = file_get_contents($json_path);
     $users = json_decode($json_data, true);
@@ -27,5 +27,5 @@ function registerUser($username, $password, $email, $contact, $shipping_address)
     file_put_contents($json_path, $updated_json_data);
     header("Location: ../../homePage.html");
 }
-registerUser($user, $password, $email, $contact, $shipping_address);
+registerUser($username, $password, $email, $contact, $shipping_address);
 ?>
