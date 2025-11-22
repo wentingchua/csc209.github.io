@@ -39,83 +39,84 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
         </div>
     </nav>
 
-    <?php if ($isLoggedIn): ?>
-        <div id="loggedin" class="container mt-5">
+    <div class="container mt-5">
+        <?php if ($isLoggedIn): ?>
             <h1>Welcome to your page, <?php echo htmlspecialchars($user_details["username"]) ?></h1>
-        </div>
-        <button onclick="handleLogout()" type="button" class="btn btn-danger">Log out</button>
-    <?php else: ?>
-        <div id="notloggedin" class="container mt-5">
+            <button onclick="handleLogout()" type="button" class="btn btn-danger mt-3">Log out</button>
+        <?php else: ?>
             <h2>Click on the Login button or Register if you do not have an account</h2>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
-        </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#loginModal">Login</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#registerModal">Register</button>
+        <?php endif; ?>
+    </div>
 
-        <!-- Login Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="../php/auth/login.php" method="POST">
-                            <div class="mb-3">
-                                <label for="loginUsername" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="loginUsername" name="username" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="loginPassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="loginPassword" name="password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
-                    </div>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../php/auth/login.php" method="POST">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="loginUsername" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Register Modal -->
-        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="registerModalLabel">Register</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="../php/auth/register.php" method="POST">
-                            <div class="mb-3">
-                                <label for="registerUsername" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="registerUsername" name="username" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="registerPassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="registerPassword" name="password" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="registerEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="registerEmail" name="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="registerContact" class="form-label">Contact</label>
-                                <input type="text" class="form-control" id="registerContact" name="contact" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="registerAddress" class="form-label">Shipping Address</label>
-                                <textarea class="form-control" id="registerAddress" name="shipping_address" rows="3"
-                                    required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-success">Register</button>
-                        </form>
-                    </div>
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../php/auth/register.php" method="POST">
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="registerUsername" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerContact" class="form-label">Contact</label>
+                            <input type="text" class="form-control" id="registerContact" name="contact" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerAddress" class="form-label">Shipping Address</label>
+                            <textarea class="form-control" id="registerAddress" name="shipping_address" rows="3"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
                 </div>
             </div>
         </div>
-    <?php endif; ?>
+    </div>
 
     <form id="logoutForm" action="../php/auth/logout.php" method="POST"></form>
+
 
 </body>
 
