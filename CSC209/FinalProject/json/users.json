@@ -6,9 +6,9 @@
     "u1": {
         "username": "alice",
         "password": "123",
-        "email": "wqer",
-        "contact": "2343",
-        "shipping_address": "frge",
+        "email": "alice@gmail.com",
+        "contact": "13243",
+        "shipping_address": "ascx",
         "cart": [],
         "reviews": []
     },

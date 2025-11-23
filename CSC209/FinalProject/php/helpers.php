@@ -1,11 +1,13 @@
 <?php
 function generateIDandIncrementCount($type)
 {
-    $path = "../json/counts.json";
+    $path = "../../json/counts.json";
     $data = file_get_contents($path);
     $counts = json_decode($data, true);
     $current_count = $counts[$type] + 1;
     $counts[$type] = $current_count;
+    $updated_json_data = json_encode($counts);
+    file_put_contents($path, $updated_json_data);
     switch ($type) {
         case "users":
             return "u" . $current_count;

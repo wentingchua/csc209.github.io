@@ -59,7 +59,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="php/homePage/addProduct.php" method="POST">
+                        <form action="php/homePage/addProduct.php" method="POST" enctype="multipart/form-data">
                             <!-- Dropdown for inside new product modal -->
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button"
