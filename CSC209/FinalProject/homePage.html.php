@@ -21,6 +21,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
         var productCategories = <?php echo json_encode($productCategories); ?>;
         var isLoggedIn = <?php echo json_encode($isLoggedIn); ?>;
         var isAdmin = <?php echo json_encode($isAdmin); ?>;
+        var userId = <?php echo json_encode($user_id)?>;
     </script>
 </head>
 

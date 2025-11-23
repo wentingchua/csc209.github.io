@@ -9,7 +9,28 @@
         "email": "alice@gmail.com",
         "contact": "13243",
         "shipping_address": "ascx",
-        "cart": [],
+        "cart": {
+            "p1": {
+                "category": "skincare",
+                "quantity": 2
+            },
+            "p5": {
+                "category": "bags",
+                "quantity": 1
+            },
+            "p11": {
+                "category": "bags",
+                "quantity": 7
+            },
+            "p10": {
+                "category": "electronics",
+                "quantity": 1
+            },
+            "p9": {
+                "category": "electronics",
+                "quantity": 1
+            }
+        },
         "reviews": []
     },
     "u2": {

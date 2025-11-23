@@ -35,8 +35,8 @@ function makeProductCards(category, products, isAdmin, isLogin) {
     const row = document.createElement("div");
     row.setAttribute("class", "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4");
 
-    for (const product_key in products) {
-        var product = products[product_key];
+    for (const product_id in products) {
+        var product = products[product_id];
 
         // col wrapper
         const col = document.createElement("div");
@@ -44,14 +44,14 @@ function makeProductCards(category, products, isAdmin, isLogin) {
 
         // card wrapper
         const cardWrapper = document.createElement("div");
-        cardWrapper.setAttribute("id", `${product_key}`)
+        cardWrapper.setAttribute("id", `${product_id}`)
         cardWrapper.setAttribute("class", "card h-100"); // h-100 so cards equal height
         cardWrapper.setAttribute("style", "width: 100%;");
 
         const img = document.createElement("img");
         img.setAttribute("class", "card-img-top");
-        img.setAttribute("id", `img-${product_key}`)
-        img.setAttribute("src", `products/${category}/${product_key}.png`);
+        img.setAttribute("id", `img-${product_id}`)
+        img.setAttribute("src", `products/${category}/${product_id}.png`);
 
         const cardBody = document.createElement("div");
         cardBody.setAttribute("class", "card-body");
@@ -75,7 +75,7 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         const addToCart = document.createElement("a");
         if (isLogin) {
             addToCart.setAttribute("class", "btn btn-success");
-            addToCart.setAttribute("onclick", `animateAddCart('${product_key}')`);
+            addToCart.setAttribute("onclick", `animateAddCart('${product_id}'); handleAddToCart('${category}', '${product_id}')`);
         } else {
             addToCart.setAttribute("data-bs-toggle", "tooltip");
             addToCart.setAttribute("title", "Log in to add to cart");
@@ -124,13 +124,13 @@ function handleCategorySelectedNewProduct(category) {
     document.getElementById("category").value = category;
 }
 
-function animateAddCart(product_key) {
-    const parent = document.getElementById(product_key);
-    const ori_img = document.getElementById("img-" + product_key);
+function animateAddCart(product_id) {
+    const parent = document.getElementById(product_id);
+    const ori_img = document.getElementById("img-" + product_id);
     const cart = document.getElementById("cartIcon");
 
     const cloned = ori_img.cloneNode(true);
-    cloned.id = product_key + "-clone";
+    cloned.id = product_id + "-clone";
     cloned.style.position = "absolute";
     cloned.style.zIndex = "9999";
 
@@ -178,6 +178,24 @@ function animateAddCart(product_key) {
             clearInterval(animation);
             cloned.remove();
         }
-    }, );
+    },);
 }
 
+function handleAddToCart(category, product_id) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        const resp = this.responseText.trim();
+        if (resp === "Add Success") {
+            //
+        } else {
+            console.error("Add to cart failed", resp);
+        }
+    };
+    const params = new URLSearchParams();
+    params.append('category', category);
+    params.append('product_id', product_id);
+    params.append('user_id', userId);
+    xhttp.open("POST", "php/homePage/addToCart.php");
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(params.toString());
+}
