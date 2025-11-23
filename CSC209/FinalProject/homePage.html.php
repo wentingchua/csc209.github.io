@@ -3,7 +3,7 @@ include 'php/helpers.php';
 session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $user_id = $isLoggedIn ? $_SESSION['user_id'] : '';
-$isAdmin = $user_id === "a0";
+$isAdmin = $user_id === "a0" ? true : false;
 $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 ?>
 
@@ -15,6 +15,12 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
     <script src="bootstrapJs/bootstrap.bundle.min.js"></script>
     <script src="js/homePage.js"></script>
     <?php include "php/homePage/productCategories.php" ?>
+    <?php getProductsInfo() ?>
+    <script>
+        var productCategories = <?php echo json_encode($productCategories); ?>;
+        var isLoggedIn = <?php echo json_encode($isLoggedIn); ?>;
+        var isAdmin = <?php echo json_encode($isAdmin); ?>;
+    </script>
 </head>
 
 <body>
@@ -37,7 +43,6 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
     </nav>
 
     <div class="container">
-        <?php getProductsInfo() ?>
         <!-- Additional feature for admin -->
         <?php if ($isAdmin): ?>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Add
@@ -104,8 +109,8 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
         </div>
     </div>
     <script>
-        makeDropdown(<?php echo json_encode($productCategories) ?>)
-        handleCategorySelect(<?php echo json_encode($productCategories[0]) ?>) //default
+        makeDropdown(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
+        handleCategorySelect(<?php echo json_encode($productCategories[0]) ?>, isAdmin, isLoggedIn) //default
     </script>
 </body>
 

@@ -1,4 +1,4 @@
-function makeDropdown(productCategories) {
+function makeDropdown(productCategories, isAdmin, isLogin) {
     const dropdown = document.getElementById("categoryDropdown");
     dropdown.innerHTML = '';
     const ulWrapper = document.createElement("ul");
@@ -7,7 +7,7 @@ function makeDropdown(productCategories) {
         const linkWrapper = document.createElement("li");
         const aWrapper = document.createElement("a");
         aWrapper.setAttribute("class", "dropdown-item");
-        aWrapper.setAttribute("onclick", `handleCategorySelect('${productCategories[i]}')`)
+        aWrapper.setAttribute("onclick", `handleCategorySelect('${productCategories[i]}', ${isAdmin}, ${isLogin})`)
         aWrapper.innerText = productCategories[i]
         linkWrapper.appendChild(aWrapper);
         ulWrapper.appendChild(linkWrapper);
@@ -15,19 +15,19 @@ function makeDropdown(productCategories) {
     dropdown.appendChild(ulWrapper);
 }
 
-function handleCategorySelect(category) {
+function handleCategorySelect(category, isAdmin, isLogin) {
     const dropdownButton = document.getElementById("dropdownButton");
     dropdownButton.innerText = category;
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         products = JSON.parse(this.responseText)
-        makeProductCards(category, products)
+        makeProductCards(category, products, isAdmin, isLogin)
     }
     xhttp.open("GET", `php/homePage/products.php?category=${category}`, true);
     xhttp.send()
 }
 
-function makeProductCards(category, products) {
+function makeProductCards(category, products, isAdmin, isLogin) {
     const productDiv = document.getElementById("productCards");
     productDiv.innerHTML = '';
 
@@ -71,7 +71,12 @@ function makeProductCards(category, products) {
         linkToDetail.innerText = "View more";
 
         const addToCart = document.createElement("a");
-        addToCart.setAttribute("class", "btn btn-success");
+        if (isLogin) {
+            addToCart.setAttribute("class", "btn btn-success");
+        } else {
+            addToCart.setAttribute("data-bs-toggle", "tooltip");
+            addToCart.setAttribute("title", "Log in to add to cart");
+        }
         addToCart.innerText = "Add to cart";
 
         cardBody.appendChild(cardTitle);
@@ -79,8 +84,10 @@ function makeProductCards(category, products) {
         cardBody.appendChild(cardStock);
         cardBody.appendChild(cardDescription);
         cardBody.appendChild(linkToDetail);
-        cardBody.appendChild(addToCart);
-
+        if (!isAdmin) {
+            cardBody.appendChild(addToCart);
+            new bootstrap.Tooltip(addToCart);
+        }
         cardWrapper.appendChild(img);
         cardWrapper.appendChild(cardBody);
 

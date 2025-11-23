@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: ../../homePage.html.php");
+header("Location: ../../html.php/profile.html.php");
 ?>
