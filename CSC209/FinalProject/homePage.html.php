@@ -35,7 +35,13 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <a class="nav-link" href="html.php/cart.html.php">Your Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="html.php/profile.html.php">Sign in / Register</a>
+                        <a class="nav-link" href="html.php/profile.html.php">
+                            <?php if ($isLoggedIn): ?>
+                                Profile
+                            <?php else: ?>
+                                Log in / Register
+                            <?php endif; ?>
+                        </a>
                     </li>
                 </ul>
             </div>

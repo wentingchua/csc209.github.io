@@ -32,7 +32,13 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <a class="nav-link" href="cart.html.php">Your Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="profile.html.php">Sign in / Register</a>
+                        <a class="nav-link" href="/profile.html.php">
+                            <?php if ($isLoggedIn): ?>
+                                Profile
+                            <?php else: ?>
+                                Log in / Register
+                            <?php endif; ?>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -45,8 +51,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
             <button onclick="handleLogout()" type="button" class="btn btn-danger mt-3">Log out</button>
         <?php else: ?>
             <h2>Click on the Login button or Register if you do not have an account</h2>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#loginModal">Login</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#registerModal">Register</button>
         <?php endif; ?>
