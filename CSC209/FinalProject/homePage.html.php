@@ -12,6 +12,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 
 <head>
     <link rel="stylesheet" href="bootstrapCss/bootstrap.min.css">
+    <link rel="stylesheet" href="css/finalProject.css">
     <script src="bootstrapJs/bootstrap.bundle.min.js"></script>
     <script src="js/homePage.js"></script>
     <?php include "php/homePage/productCategories.php" ?>
@@ -24,7 +25,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto">
@@ -32,7 +33,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <a class="nav-link active" href="homePage.html.php">Our Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="html.php/cart.html.php">Your Cart</a>
+                        <a class="nav-link" id = "cartIcon" href="html.php/cart.html.php">Your Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="html.php/profile.html.php">

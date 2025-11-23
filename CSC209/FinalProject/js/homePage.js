@@ -44,11 +44,13 @@ function makeProductCards(category, products, isAdmin, isLogin) {
 
         // card wrapper
         const cardWrapper = document.createElement("div");
+        cardWrapper.setAttribute("id", `${product_key}`)
         cardWrapper.setAttribute("class", "card h-100"); // h-100 so cards equal height
         cardWrapper.setAttribute("style", "width: 100%;");
 
         const img = document.createElement("img");
         img.setAttribute("class", "card-img-top");
+        img.setAttribute("id", `img-${product_key}`)
         img.setAttribute("src", `products/${category}/${product_key}.png`);
 
         const cardBody = document.createElement("div");
@@ -73,6 +75,7 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         const addToCart = document.createElement("a");
         if (isLogin) {
             addToCart.setAttribute("class", "btn btn-success");
+            addToCart.setAttribute("onclick", `animateAddCart('${product_key}')`);
         } else {
             addToCart.setAttribute("data-bs-toggle", "tooltip");
             addToCart.setAttribute("title", "Log in to add to cart");
@@ -120,3 +123,61 @@ function handleCategorySelectedNewProduct(category) {
     dropdownButton.innerText = category;
     document.getElementById("category").value = category;
 }
+
+function animateAddCart(product_key) {
+    const parent = document.getElementById(product_key);
+    const ori_img = document.getElementById("img-" + product_key);
+    const cart = document.getElementById("cartIcon");
+
+    const cloned = ori_img.cloneNode(true);
+    cloned.id = product_key + "-clone";
+    cloned.style.position = "absolute";
+    cloned.style.zIndex = "9999";
+
+    parent.appendChild(cloned);
+
+    const ori_img_pos = ori_img.getBoundingClientRect();
+    const parent_pos = parent.getBoundingClientRect();
+    const cart_pos = cart.getBoundingClientRect();
+
+    let startX = ori_img_pos.left - parent_pos.left;
+    let startY = ori_img_pos.top - parent_pos.top;
+
+    cloned.style.left = startX + "px";
+    cloned.style.top = startY + "px";
+
+    const endX = cart_pos.left - parent_pos.left;
+    const endY = cart_pos.top - parent_pos.top;
+
+    const totalFrames = 120;
+    let frame = 0;
+
+    const roc_x = (endX - startX) / totalFrames;
+    const roc_y = (endY - startY) / totalFrames;
+
+    let width = ori_img.width;
+    let height = ori_img.height;
+
+    const shrinkRate = 0.98;
+
+    const animation = setInterval(() => {
+        frame++;
+
+        startX += roc_x;
+        startY += roc_y;
+
+        width *= shrinkRate;
+        height *= shrinkRate;
+
+        cloned.style.left = startX + "px";
+        cloned.style.top = startY + "px";
+        cloned.style.width = width + "px";
+        cloned.style.height = height + "px";
+
+        if (frame >= totalFrames) {
+            clearInterval(animation);
+            cloned.remove();
+        }
+    }, );
+}
+
