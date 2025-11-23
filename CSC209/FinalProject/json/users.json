@@ -16,11 +16,11 @@
             },
             "p5": {
                 "category": "bags",
-                "quantity": 1
+                "quantity": 20
             },
             "p11": {
                 "category": "bags",
-                "quantity": 7
+                "quantity": 8
             },
             "p10": {
                 "category": "electronics",
@@ -28,6 +28,10 @@
             },
             "p9": {
                 "category": "electronics",
+                "quantity": 1
+            },
+            "p6": {
+                "category": "bags",
                 "quantity": 1
             }
         },
