@@ -32,7 +32,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <a class="nav-link" href="cart.html.php">Your Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile.html.php">
+                        <a class="nav-link" href="profile.html.php">
                             <?php if ($isLoggedIn): ?>
                                 Profile
                             <?php else: ?>
