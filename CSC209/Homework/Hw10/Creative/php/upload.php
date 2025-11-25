@@ -10,7 +10,7 @@ $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
-}$
+}
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
