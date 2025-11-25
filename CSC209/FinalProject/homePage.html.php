@@ -72,15 +72,24 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <div class="modal-body">
                         <form action="php/homePage/addProduct.php" method="POST" enctype="multipart/form-data">
                             <!-- Dropdown for inside new product modal -->
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownButtonNewProduct" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Select category
-                                </button>
-                                <div id="categoryDropdownNewProduct"></div>
+                            <!-- <div class="mb-3">
+                                <label for="createCategoryPrompt" class="form-label">Create new category</label>
+                                <input type="checkbox" name="createCategoryPrompt" id="createCategoryPrompt">
+                            </div> -->
+                            <div class="mb-3">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="dropdownButtonNewProduct" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select category
+                                    </button>
+                                    <div id="categoryDropdownNewProduct"></div>
+                                </div>
                             </div>
-                            <input type="hidden" name="category" id="category">
                             <script>makeDropdownForNewProduct(<?php echo json_encode($productCategories) ?>)</script>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="category" name="category" required>
+                            </div>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" required>

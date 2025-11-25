@@ -115,13 +115,24 @@ function makeDropdownForNewProduct(productCategories) {
         linkWrapper.appendChild(aWrapper);
         ulWrapper.appendChild(linkWrapper);
     }
+    const linkWrapper = document.createElement("li");
+    const aWrapper = document.createElement("a");
+    aWrapper.setAttribute("class", "dropdown-item");
+    aWrapper.setAttribute("onclick", `handleCategorySelectedNewProduct('Create new category')`)
+    aWrapper.innerText = "Create new category"
+    linkWrapper.appendChild(aWrapper);
+    ulWrapper.appendChild(linkWrapper);
     dropdown.appendChild(ulWrapper);
 }
 
 function handleCategorySelectedNewProduct(category) {
     const dropdownButton = document.getElementById("dropdownButtonNewProduct");
     dropdownButton.innerText = category;
-    document.getElementById("category").value = category;
+    if (category == "Create new category") {
+        document.getElementById("category").value = "";
+    } else {
+        document.getElementById("category").value = category;
+    }
 }
 
 function animateAddCart(product_id) {
