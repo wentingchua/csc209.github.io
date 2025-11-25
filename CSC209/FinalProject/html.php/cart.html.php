@@ -53,10 +53,6 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <div class="col-10">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h3 class="fw-normal mb-0">Shopping Cart</h3>
-                            <!-- <div>
-                                <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
-                                        class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
-                            </div> -->
                         </div>
                     </div>
                     <div id="cart-section" class="col-10">
@@ -65,7 +61,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <div class="card">
                             <div class="card-body">
                                 <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                                    class="btn btn-success btn-block btn-lg">Proceed to Pay</button>
                             </div>
                         </div>
                     </div>
