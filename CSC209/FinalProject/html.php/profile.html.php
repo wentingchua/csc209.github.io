@@ -3,6 +3,7 @@ include '../php/helpers.php';
 session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $user_id = $isLoggedIn ? $_SESSION['user_id'] : '';
+$isAdmin = $user_id === "a0" ? true : false;
 $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 ?>
 
@@ -28,9 +29,12 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <li class="nav-item">
                         <a class="nav-link" href="../homePage.html.php">Our Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html.php">Your Cart</a>
-                    </li>
+                    <?php if ($isAdmin): ?>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" id="cartIcon" href="cart.html.php">Your Cart</a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.html.php">
                             <?php if ($isLoggedIn): ?>

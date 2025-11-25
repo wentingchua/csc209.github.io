@@ -21,7 +21,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
         var productCategories = <?php echo json_encode($productCategories); ?>;
         var isLoggedIn = <?php echo json_encode($isLoggedIn); ?>;
         var isAdmin = <?php echo json_encode($isAdmin); ?>;
-        var userId = <?php echo json_encode($user_id)?>;
+        var userId = <?php echo json_encode($user_id) ?>;
     </script>
 </head>
 
@@ -33,9 +33,12 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <li class="nav-item">
                         <a class="nav-link active" href="homePage.html.php">Our Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id = "cartIcon" href="html.php/cart.html.php">Your Cart</a>
-                    </li>
+                    <?php if ($isAdmin): ?>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" id="cartIcon" href="html.php/cart.html.php">Your Cart</a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link" href="html.php/profile.html.php">
                             <?php if ($isLoggedIn): ?>
