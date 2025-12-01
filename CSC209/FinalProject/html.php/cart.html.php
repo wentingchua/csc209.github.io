@@ -59,13 +59,16 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                             <h3 class="fw-normal mb-0">Shopping Cart</h3>
                         </div>
                     </div>
+                    <div id="cartAlert" class="col-10">
+                    </div>
                     <div id="cart-section" class="col-10">
                     </div>
                     <div class="col-10">
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init onclick="handlePaymentButtonPressed()"
-                                    class="btn btn-success btn-block btn-lg">Proceed to Pay</button>
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                    onclick="handlePaymentButtonPressed()" class="btn btn-success btn-block btn-lg">Proceed
+                                    to Pay</button>
                             </div>
                         </div>
                     </div>

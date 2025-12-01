@@ -78,9 +78,22 @@ function handlePaymentButtonPressed() {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         if (JSON.parse(this.responseText) == "Success") {
+            console.log("Success")
             getCartInfo(user_id);
+        } else {
+            console.log("Fail")
+            showAlert(JSON.parse(this.responseText))
         }
     }
     xhttp.open("POST", '../php/cart/makePayment.php');
     xhttp.send();
+}
+
+function showAlert(outOfStockProducts) {
+    const alertDiv = document.getElementById("cartAlert");
+    alertDiv.innerHTML = '';
+    var alertBox = document.createElement("div");
+    alertBox.setAttribute("class", "alert alert-danger");
+    alertBox.innerText = `The following items cannot be checked out as they are out of stock: ${outOfStockProducts}`
+    alertDiv.appendChild(alertBox);
 }

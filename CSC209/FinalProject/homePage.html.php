@@ -96,11 +96,11 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" class="form-control" id="price" name="price" required>
+                                <input type="number" class="form-control" id="price" name="price" required>
                             </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
-                                <input type="text" class="form-control" id="stock" name="stock" required>
+                                <input type="number" class="form-control" id="stock" name="stock" required>
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>

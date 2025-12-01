@@ -8,6 +8,8 @@ $json_path = "../../json/users.json";
 $users = json_decode(file_get_contents($json_path), true);
 $cart = $users[$user_id]["cart"];
 
+$out_of_stock_products = [];
+
 foreach ($cart as $category => $items) {
     $category_json_path = "../../json/products/$category.json";
     $category_products = json_decode(file_get_contents($category_json_path), true);
@@ -15,6 +17,7 @@ foreach ($cart as $category => $items) {
         $product_info = $category_products[$product_id];
         //check if quantitiy > stock
         if ($quantity > $product_info["stock"]) {
+            array_push($out_of_stock_products, $product_info["title"]);
             continue;
         }
         //minus quantity
@@ -25,5 +28,10 @@ foreach ($cart as $category => $items) {
     file_put_contents($category_json_path, json_encode($category_products));
 }
 file_put_contents($json_path, json_encode($users));
-echo json_encode("Success");
+
+if ($out_of_stock_products == []) {
+    echo json_encode("Success");
+} else {
+    echo json_encode($out_of_stock_products);
+}
 ?>
