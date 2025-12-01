@@ -2,7 +2,7 @@
     "p5": {
         "title": "Trash bag",
         "price": 99999,
-        "stock": 1,
+        "stock": 0,
         "description": "Limited edition trash bag.",
         "reviews": []
     },

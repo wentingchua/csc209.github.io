@@ -63,7 +63,12 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         cardPrice.innerText = "$" + product["price"];
 
         const cardStock = document.createElement("h6");
-        cardStock.innerText = "Stock: " + product["stock"];
+        if (product["stock"] == 0) {
+            cardStock.innerText = "OUT OF STOCK";
+            cardStock.setAttribute("style", "color: red")
+        } else {
+            cardStock.innerText = "Stock: " + product["stock"];
+        }
 
         const cardDescription = document.createElement("p");
         cardDescription.innerText = product["description"];
@@ -74,13 +79,21 @@ function makeProductCards(category, products, isAdmin, isLogin) {
 
         const addToCart = document.createElement("a");
         if (isLogin) {
-            addToCart.setAttribute("class", "btn btn-success");
-            addToCart.setAttribute("onclick", `animateAddCart('${product_id}'); handleAddToCart('${category}', '${product_id}')`);
+            if (product["stock"] == 0) {
+                addToCart.setAttribute("class", "btn btn-success disabled");
+                addToCart.setAttribute("title", "Product is out of stock");
+                addToCart.innerText = "Out of stock";
+            } else {
+                addToCart.setAttribute("class", "btn btn-success");
+                addToCart.setAttribute("onclick", `animateAddCart('${product_id}'); handleAddToCart('${category}', '${product_id}')`);
+                addToCart.innerText = "Add to cart";
+            }
         } else {
-            addToCart.setAttribute("data-bs-toggle", "tooltip");
+            addToCart.setAttribute("class", "btn btn-success disabled");
             addToCart.setAttribute("title", "Log in to add to cart");
+            addToCart.innerText = "Log in first";
         }
-        addToCart.innerText = "Add to cart";
+        // addToCart.innerText = "Add to cart";
 
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardPrice);
