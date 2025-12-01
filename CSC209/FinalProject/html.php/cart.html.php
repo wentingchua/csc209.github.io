@@ -64,7 +64,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <div class="col-10">
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init onclick="handlePaymentButtonPressed()"
                                     class="btn btn-success btn-block btn-lg">Proceed to Pay</button>
                             </div>
                         </div>

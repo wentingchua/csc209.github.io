@@ -2,22 +2,9 @@ function getCartInfo(user_id) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         productsInCart = JSON.parse(this.responseText);
-        // console.log(productsInCart);
-        // getProductInfo(productsInCart);
         makeCartCards(productsInCart);
     }
     xhttp.open("GET", `../php/cart/getProductsInCart.php?user_id=${user_id}`, true);
-    xhttp.send()
-}
-
-function getProductInfo(productsInCart) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-        const productInfo = JSON.parse(this.responseText);
-        console.log(productInfo);
-        return productInfo;
-    }
-    xhttp.open("GET", `../php/cart/getProductInfo.php?productsInCart=${productsInCart}`, true);
     xhttp.send()
 }
 
@@ -79,4 +66,8 @@ function makeCartCards(productsInCart) {
         div1.appendChild(div2);
         cart.appendChild(div1);
     }
+}
+
+function handlePaymentButtonPressed() {
+
 }
