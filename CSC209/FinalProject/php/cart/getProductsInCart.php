@@ -12,6 +12,7 @@ foreach ($cart as $category => $items) {
         $product_info = $category_products[$product_id];
         $cart_product = [
             "quantity" => $quantity,
+            "stock" => $product_info["stock"],
             "category" => $category,
             "title" => $product_info["title"],
             "price" => $product_info["price"],

@@ -23,7 +23,7 @@ function makeCartCards(productsInCart) {
 
         var div3 = document.createElement("div");
         div3.setAttribute("class", "row d-flex justify-content-between align-items-center")
-    
+
         //Image
         var div4a = document.createElement("div");
         div4a.setAttribute("class", "col-md-2 col-lg-2 col-xl-2");
@@ -48,7 +48,13 @@ function makeCartCards(productsInCart) {
         div4c.setAttribute("class", "col-md-3 col-lg-3 col-xl-2 d-flex");
         var quantity = document.createElement("p");
         quantity.setAttribute("class", "lead fw-normal mb-2");
-        quantity.innerText = product["quantity"];
+        if (product["quantity"] > product["stock"]) {
+            quantity.setAttribute("style", "color: red")
+            quantity.innerText = "Out of stock";
+        }
+        else {
+            quantity.innerText = product["quantity"];
+        }
         div4c.appendChild(quantity);
 
         //Price
@@ -69,5 +75,12 @@ function makeCartCards(productsInCart) {
 }
 
 function handlePaymentButtonPressed() {
-
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        if (JSON.parse(this.responseText) == "Success") {
+            getCartInfo(user_id);
+        }
+    }
+    xhttp.open("POST", '../php/cart/makePayment.php');
+    xhttp.send();
 }
