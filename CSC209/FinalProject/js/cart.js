@@ -32,6 +32,11 @@ function makeCartCards(productsInCart) {
         var checkbox = document.createElement("input");
         checkbox.setAttribute("class", "form-check-input");
         checkbox.setAttribute("type", "checkbox");
+        if (product["quantity"] > product["stock"]) {
+            checkbox.setAttribute("disabled", "");
+            formCheck.setAttribute("data-toggle", "tooltip");
+            formCheck.setAttribute("title", "Item is out of stock");
+        }
         formCheck.appendChild(checkbox);
         div4z.appendChild(formCheck);
 
@@ -45,7 +50,7 @@ function makeCartCards(productsInCart) {
 
         // Title & Description
         var div4b = document.createElement("div");
-        div4b.setAttribute("class", "col-md-4");
+        div4b.setAttribute("class", "col-md-3");
         var title = document.createElement("p");
         title.setAttribute("class", "lead fw-normal mb-2");
         title.innerText = product["title"];
@@ -56,7 +61,7 @@ function makeCartCards(productsInCart) {
 
         // Quantity
         var div4c = document.createElement("div");
-        div4c.setAttribute("class", "col-md-1 d-flex align-items-center");
+        div4c.setAttribute("class", "col-md-2 d-flex align-items-center");
         var quantity = document.createElement("p");
         quantity.setAttribute("class", "lead fw-normal mb-2");
         if (product["quantity"] > product["stock"]) {
@@ -69,7 +74,7 @@ function makeCartCards(productsInCart) {
 
         // Price
         var div4d = document.createElement("div");
-        div4d.setAttribute("class", "col-md-1");
+        div4d.setAttribute("class", "col-md-2");
         var price = document.createElement("h5");
         price.innerText = "$" + product["price"];
         div4d.appendChild(price);
