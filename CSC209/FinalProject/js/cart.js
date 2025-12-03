@@ -64,10 +64,20 @@ function makeCartCards(productsInCart) {
         price.innerText = "$" + product["price"];
         div4d.appendChild(price);
 
+        //Remove item
+        var div4e = document.createElement("div")
+        div4e.setAttribute("class", "col-md-3 col-lg-1 col-xl-2 text-end");
+        var deleteBtn = document.createElement("button");
+        deleteBtn.className = "btn btn-danger btn-sm";
+        deleteBtn.innerText = "Remove";
+        deleteBtn.setAttribute("onclick", `removeItemFromCart('${product["category"]}','${product_id}')`)
+        div4e.appendChild(deleteBtn);
+
         div3.appendChild(div4a);
         div3.appendChild(div4b);
         div3.appendChild(div4c);
         div3.appendChild(div4d);
+        div3.appendChild(div4e);
         div2.appendChild(div3);
         div1.appendChild(div2);
         cart.appendChild(div1);
@@ -96,4 +106,19 @@ function showAlert(outOfStockProducts) {
     alertBox.setAttribute("class", "alert alert-danger");
     alertBox.innerText = `The following items cannot be checked out as they are out of stock: ${outOfStockProducts}`
     alertDiv.appendChild(alertBox);
+}
+
+function removeItemFromCart(category, product_id) {
+    console.log("test")
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        if (JSON.parse(this.responseText) == "Success") {
+            console.log("Success")
+            getCartInfo(user_id);
+        } else {
+            console.log("Fail")
+        }
+    }
+    xhttp.open("POST", `../php/cart/removeItem.php?category=${category}&product_id=${product_id}`);
+    xhttp.send();
 }
