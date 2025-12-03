@@ -93,6 +93,7 @@ function handlePaymentButtonPressed() {
         } else {
             console.log("Fail")
             showAlert(JSON.parse(this.responseText))
+            getCartInfo(user_id);
         }
     }
     xhttp.open("POST", '../php/cart/makePayment.php');

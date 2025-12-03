@@ -118,6 +118,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
             </div>
         </div>
         <!-- Product Category Dropdown -->
+        <br>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 id="dropdownButton" aria-expanded="false">
@@ -125,6 +126,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
             </button>
             <div id="categoryDropdown"></div>
         </div>
+        <br>
         <div id="productCards">
         </div>
     </div>
