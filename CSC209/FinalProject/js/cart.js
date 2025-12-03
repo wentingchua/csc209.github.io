@@ -90,9 +90,12 @@ function handlePaymentButtonPressed() {
         if (JSON.parse(this.responseText) == "Success") {
             console.log("Success")
             getCartInfo(user_id);
+        } else if (JSON.parse(this.responseText) == "Empty cart") {
+            showAlert("Cart is empty. Please add items to cart.")
         } else {
             console.log("Fail")
-            showAlert(JSON.parse(this.responseText))
+            // showAlert(JSON.parse(this.responseText))
+            showAlert(`The following items cannot be checked out as they are out of stock: ${JSON.parse(this.responseText)}`)
             getCartInfo(user_id);
         }
     }
@@ -100,12 +103,12 @@ function handlePaymentButtonPressed() {
     xhttp.send();
 }
 
-function showAlert(outOfStockProducts) {
+function showAlert(alert) {
     const alertDiv = document.getElementById("cartAlert");
     alertDiv.innerHTML = '';
     var alertBox = document.createElement("div");
     alertBox.setAttribute("class", "alert alert-danger");
-    alertBox.innerText = `The following items cannot be checked out as they are out of stock: ${outOfStockProducts}`
+    alertBox.innerText = alert;
     alertDiv.appendChild(alertBox);
 }
 
