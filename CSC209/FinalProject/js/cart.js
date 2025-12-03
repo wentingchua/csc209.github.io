@@ -22,19 +22,30 @@ function makeCartCards(productsInCart) {
         div2.setAttribute("class", "card-body p-4");
 
         var div3 = document.createElement("div");
-        div3.setAttribute("class", "row d-flex justify-content-between align-items-center")
+        div3.setAttribute("class", "row d-flex justify-content-between align-items-center");
 
-        //Image
+        // Checkbox
+        var div4z = document.createElement("div");
+        div4z.setAttribute("class", "col-md-1 d-flex align-items-center");
+        var formCheck = document.createElement("div");
+        formCheck.setAttribute("class", "form-check m-0");
+        var checkbox = document.createElement("input");
+        checkbox.setAttribute("class", "form-check-input");
+        checkbox.setAttribute("type", "checkbox");
+        formCheck.appendChild(checkbox);
+        div4z.appendChild(formCheck);
+
+        // Image
         var div4a = document.createElement("div");
-        div4a.setAttribute("class", "col-md-2 col-lg-2 col-xl-2");
-        var img = document.createElement("img")
+        div4a.setAttribute("class", "col-md-2");
+        var img = document.createElement("img");
         img.setAttribute("class", "img-fluid rounded-3");
         img.setAttribute("src", `../products/${product["category"]}/${product_id}.png`);
         div4a.appendChild(img);
 
-        //Title & Description
+        // Title & Description
         var div4b = document.createElement("div");
-        div4b.setAttribute("class", "col-md-3 col-lg-3 col-xl-3");
+        div4b.setAttribute("class", "col-md-4");
         var title = document.createElement("p");
         title.setAttribute("class", "lead fw-normal mb-2");
         title.innerText = product["title"];
@@ -43,41 +54,44 @@ function makeCartCards(productsInCart) {
         div4b.appendChild(title);
         div4b.appendChild(description);
 
-        //Quantity
+        // Quantity
         var div4c = document.createElement("div");
-        div4c.setAttribute("class", "col-md-3 col-lg-3 col-xl-2 d-flex");
+        div4c.setAttribute("class", "col-md-1 d-flex align-items-center");
         var quantity = document.createElement("p");
         quantity.setAttribute("class", "lead fw-normal mb-2");
         if (product["quantity"] > product["stock"]) {
-            quantity.setAttribute("style", "color: red")
+            quantity.style.color = "red";
             quantity.innerText = "Out of stock";
-        }
-        else {
+        } else {
             quantity.innerText = product["quantity"];
         }
         div4c.appendChild(quantity);
 
-        //Price
+        // Price
         var div4d = document.createElement("div");
-        div4d.setAttribute("class", "col-md-3 col-lg-2 col-xl-2 offset-lg-1");
+        div4d.setAttribute("class", "col-md-1");
         var price = document.createElement("h5");
         price.innerText = "$" + product["price"];
         div4d.appendChild(price);
 
-        //Remove item
-        var div4e = document.createElement("div")
-        div4e.setAttribute("class", "col-md-3 col-lg-1 col-xl-2 text-end");
+        // Remove button
+        var div4e = document.createElement("div");
+        div4e.setAttribute("class", "col-md-2");
         var deleteBtn = document.createElement("button");
         deleteBtn.className = "btn btn-danger btn-sm";
         deleteBtn.innerText = "Remove";
-        deleteBtn.setAttribute("onclick", `removeItemFromCart('${product["category"]}','${product_id}')`)
+        deleteBtn.setAttribute("onclick",
+            `removeItemFromCart('${product["category"]}','${product_id}')`
+        );
         div4e.appendChild(deleteBtn);
 
+        div3.appendChild(div4z);
         div3.appendChild(div4a);
         div3.appendChild(div4b);
         div3.appendChild(div4c);
         div3.appendChild(div4d);
         div3.appendChild(div4e);
+
         div2.appendChild(div3);
         div1.appendChild(div2);
         cart.appendChild(div1);
