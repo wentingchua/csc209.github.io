@@ -1,0 +1,12 @@
+{
+    "p12": {
+        "count": 2,
+        "amount": 8,
+        "category": "Food"
+    },
+    "p14": {
+        "count": 2,
+        "amount": 66,
+        "category": "Food"
+    }
+}
