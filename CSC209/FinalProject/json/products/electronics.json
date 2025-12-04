@@ -40,5 +40,12 @@
         "stock": 99,
         "description": "Very good Lightning C cable.",
         "reviews": []
+    },
+    "p13": {
+        "title": "Powerbank",
+        "price": "4",
+        "stock": "100",
+        "description": "Gd",
+        "reviews": []
     }
 }

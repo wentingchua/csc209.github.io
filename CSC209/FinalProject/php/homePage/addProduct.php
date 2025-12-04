@@ -23,6 +23,9 @@ $updated_json_data = json_encode($products);
 file_put_contents($json_path, $updated_json_data);
 //Upload image
 $target_dir = "../../products/$category/";
+if (!is_dir($target_dir)) {
+    mkdir($target_dir, 0777, true);
+}
 $ext = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
 $target_file = $target_dir . $product_id . "." . $ext;
 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
