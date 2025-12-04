@@ -17,6 +17,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
         var user_id = <?php echo json_encode($user_id) ?>;
         var selected_products = {};
         var nr_selected = 0;
+        var total = 0;
     </script>
     <script src="../js/cart.js"></script>
 </head>
@@ -68,9 +69,13 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <div class="col-10">
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    onclick="handlePaymentButtonPressed()" class="btn btn-success btn-block btn-lg">Proceed
-                                    to Pay</button>
+                                <button type="button" onclick="handlePaymentButtonPressed()"
+                                    class="btn btn-success btn-block btn-lg mb-3">
+                                    Proceed to Pay
+                                </button>
+                                <div class="d-flex justify-content-end">
+                                    <h5 id="totalAmount">Total amount: $0</h5>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -33,7 +33,7 @@ function makeCartCards(productsInCart) {
         checkbox.setAttribute("id", `checkbox-${product_id}`)
         checkbox.setAttribute("class", "form-check-input");
         checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("onchange", `handleSelectProduct('${product["category"]}', '${product_id}', ${product["quantity"]})`)
+        checkbox.setAttribute("onchange", `handleSelectProduct('${product["category"]}', '${product_id}', ${product["quantity"]}, ${product["price"]})`)
         if (product["quantity"] > product["stock"]) {
             checkbox.setAttribute("disabled", "");
             formCheck.setAttribute("data-toggle", "tooltip");
@@ -109,12 +109,17 @@ function handlePaymentButtonPressed() {
     if (nr_selected == 0) {
         showAlert("Select items to checkout.")
     }
+    var totalStr = document.getElementById("totalAmount")
     const xhttp = new XMLHttpRequest();
     xhttp.open("POST", '../php/cart/makePayment.php');
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.onload = function () {
         if (JSON.parse(this.responseText) == "Success") {
             console.log("Success")
+            selected_products = {};
+            nr_selected = 0;
+            total = 0;
+            totalStr.innerText = `Total amount: $${total}`
             getCartInfo(user_id);
         } else if (JSON.parse(this.responseText) == "Empty cart") {
             showAlert("Cart is empty. Please add items to cart.")
@@ -152,17 +157,22 @@ function removeItemFromCart(category, product_id) {
     xhttp.send();
 }
 
-function handleSelectProduct(category, product_id, quantity) {
+function handleSelectProduct(category, product_id, quantity, price) {
     var checkbox = document.getElementById(`checkbox-${product_id}`)
+    var totalStr = document.getElementById("totalAmount")
     if (checkbox.checked) {
-        nr_selected ++;
+        nr_selected++;
+        total += price * quantity;
+        totalStr.innerText = `Total amount: $${total}`
         if (!selected_products[category]) {
             selected_products[category] = {};
         }
         selected_products[category][product_id] = quantity;
         console.log(selected_products);
     } else {
-        nr_selected --;
+        nr_selected--;
+        total -= price * quantity;
+        totalStr.innerText = `Total amount: $${total}`
         delete selected_products[category][product_id];
         console.log(selected_products);
     }
