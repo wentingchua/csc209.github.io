@@ -10,14 +10,8 @@
         "contact": "13243",
         "shipping_address": "ascx",
         "cart": {
-            "bags": {
-                "p5": 1
-            },
-            "electronics": {
-                "p4": 1,
-                "p7": 1,
-                "p8": 1
-            }
+            "bags": [],
+            "electronics": []
         },
         "reviews": []
     },

@@ -30,8 +30,10 @@ function makeCartCards(productsInCart) {
         var formCheck = document.createElement("div");
         formCheck.setAttribute("class", "form-check m-0");
         var checkbox = document.createElement("input");
+        checkbox.setAttribute("id", `checkbox-${product_id}`)
         checkbox.setAttribute("class", "form-check-input");
         checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("onchange", `handleSelectProduct('${product["category"]}', '${product_id}', ${product["quantity"]})`)
         if (product["quantity"] > product["stock"]) {
             checkbox.setAttribute("disabled", "");
             formCheck.setAttribute("data-toggle", "tooltip");
@@ -104,7 +106,12 @@ function makeCartCards(productsInCart) {
 }
 
 function handlePaymentButtonPressed() {
+    if (nr_selected == 0) {
+        showAlert("Select items to checkout.")
+    }
     const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", '../php/cart/makePayment.php');
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.onload = function () {
         if (JSON.parse(this.responseText) == "Success") {
             console.log("Success")
@@ -118,8 +125,7 @@ function handlePaymentButtonPressed() {
             getCartInfo(user_id);
         }
     }
-    xhttp.open("POST", '../php/cart/makePayment.php');
-    xhttp.send();
+    xhttp.send(JSON.stringify(selected_products));
 }
 
 function showAlert(alert) {
@@ -144,4 +150,20 @@ function removeItemFromCart(category, product_id) {
     }
     xhttp.open("POST", `../php/cart/removeItem.php?category=${category}&product_id=${product_id}`);
     xhttp.send();
+}
+
+function handleSelectProduct(category, product_id, quantity) {
+    var checkbox = document.getElementById(`checkbox-${product_id}`)
+    if (checkbox.checked) {
+        nr_selected ++;
+        if (!selected_products[category]) {
+            selected_products[category] = {};
+        }
+        selected_products[category][product_id] = quantity;
+        console.log(selected_products);
+    } else {
+        nr_selected --;
+        delete selected_products[category][product_id];
+        console.log(selected_products);
+    }
 }

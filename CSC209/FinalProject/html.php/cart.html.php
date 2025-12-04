@@ -13,10 +13,12 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 <head>
     <link rel="stylesheet" href="../bootstrapCss/bootstrap.min.css">
     <script src="../bootstrapJs/bootstrap.bundle.min.js"></script>
-    <script src="../js/cart.js"></script>
     <script>
-        var user_id = <?php echo json_encode($user_id) ?>
+        var user_id = <?php echo json_encode($user_id) ?>;
+        var selected_products = {};
+        var nr_selected = 0;
     </script>
+    <script src="../js/cart.js"></script>
 </head>
 
 <body>

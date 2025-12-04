@@ -6,7 +6,7 @@ $user_id = $isLoggedIn ? $_SESSION['user_id'] : '';
 //get product ids
 $json_path = "../../json/users.json";
 $users = json_decode(file_get_contents($json_path), true);
-$cart = $users[$user_id]["cart"];
+$cart = json_decode(file_get_contents("php://input"), true);
 
 $out_of_stock_products = [];
 
