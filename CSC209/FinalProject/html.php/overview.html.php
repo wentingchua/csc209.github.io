@@ -4,7 +4,6 @@ session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $user_id = $isLoggedIn ? $_SESSION['user_id'] : '';
 $isAdmin = $user_id === "a0" ? true : false;
-$user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +12,9 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 <head>
     <link rel="stylesheet" href="../bootstrapCss/bootstrap.min.css">
     <script src="../bootstrapJs/bootstrap.bundle.min.js"></script>
+    <script src="../chartJs/chart.umd.min.js"></script>
+    <script src="../js/overview.js"></script>
+    <?php include '../php/overview/totalSales.php' ?>
 </head>
 
 <body>
@@ -33,7 +35,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile.html.php">
+                        <a class="nav-link" href="profile.html.php">
                             <?php if ($isLoggedIn): ?>
                                 Profile
                             <?php else: ?>
@@ -46,7 +48,18 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 
         </div>
     </nav>
-    <p>Product A</p>
+    <div class="container mt-5">
+        <h1>Sales Summary</h1>
+        <h2>Total profits: $<?php totalSales() ?></h2>
+    </div>
+    <div class="container mt-5">
+        <canvas id="productSalesByQuantity"></canvas>
+        <script>generateBarChartSalesByQuantity()</script>
+    </div>
+    <!-- <div class="container mt-5">
+        <canvas id="pieChart" width="400" height="400"></canvas>
+        <script></script>
+    </div> -->
 </body>
 
 </html>

@@ -1,12 +1,26 @@
 {
     "p12": {
+        "title": "Chips",
         "count": 2,
         "amount": 8,
         "category": "Food"
     },
     "p14": {
+        "title": "another bag of chips",
         "count": 2,
         "amount": 66,
         "category": "Food"
+    },
+    "p1": {
+        "title": "laniege lip balm",
+        "count": 1,
+        "amount": 20,
+        "category": "skincare"
+    },
+    "p2": {
+        "title": "laniege moisturizer",
+        "count": 1,
+        "amount": 20,
+        "category": "skincare"
     }
 }

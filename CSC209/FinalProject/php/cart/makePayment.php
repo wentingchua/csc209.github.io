@@ -34,6 +34,7 @@ foreach ($cart as $category => $items) {
             $product_sales[$product_id]["amount"] += $quantity*$product_info["price"];
         } else {
             $newEntry = [];
+            $newEntry["title"] = $product_info["title"];
             $newEntry["count"] = $quantity;
             $newEntry["amount"] = $quantity*$product_info["price"];
             $newEntry["category"] = $category;
