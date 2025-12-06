@@ -53,9 +53,19 @@ $isAdmin = $user_id === "a0" ? true : false;
         <h2>Total profits: $<?php totalSales() ?></h2>
     </div>
     <div class="container mt-5">
-        <canvas id="productSalesByQuantity"></canvas>
-        <script>generateBarChartSalesByQuantity()</script>
+        <div class="row">
+            <div class="col-6">
+                <canvas id="productSalesByQuantity"></canvas>
+                <script>generateBarChartSalesByQuantity()</script>
+            </div>
+
+            <div class="col-6">
+                <canvas id="productSalesByProfit"></canvas>
+                <script>generateBarChartSalesByProfit()</script>
+            </div>
+        </div>
     </div>
+
     <!-- <div class="container mt-5">
         <canvas id="pieChart" width="400" height="400"></canvas>
         <script></script>
