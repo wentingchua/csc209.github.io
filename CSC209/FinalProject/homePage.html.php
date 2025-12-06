@@ -34,6 +34,9 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <a class="nav-link active" href="homePage.html.php">Our Products</a>
                     </li>
                     <?php if ($isAdmin): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" id="cartIcon" href="html.php/overview.html.php">Overview</a>
+                        </li>
                     <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link" id="cartIcon" href="html.php/cart.html.php">Your Cart</a>

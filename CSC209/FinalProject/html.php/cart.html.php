@@ -33,7 +33,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     <?php if ($isAdmin): ?>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link" id="cartIcon" href="cart.html.php">Your Cart</a>
+                            <a class="nav-link active" id="cartIcon" href="cart.html.php">Your Cart</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">

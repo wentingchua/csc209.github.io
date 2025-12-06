@@ -30,13 +30,16 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <a class="nav-link" href="../homePage.html.php">Our Products</a>
                     </li>
                     <?php if ($isAdmin): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" id="cartIcon" href="overview.html.php">Overview</a>
+                        </li>
                     <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link" id="cartIcon" href="cart.html.php">Your Cart</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.html.php">
+                        <a class="nav-link active" href="profile.html.php">
                             <?php if ($isLoggedIn): ?>
                                 Profile
                             <?php else: ?>

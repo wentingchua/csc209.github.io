@@ -25,7 +25,7 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     </li>
                     <?php if ($isAdmin): ?>
                         <li class="nav-item">
-                            <a class="nav-link" id="cartIcon" href="overview.html.php">Overview</a>
+                            <a class="nav-link active" id="cartIcon" href="overview.html.php">Overview</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
