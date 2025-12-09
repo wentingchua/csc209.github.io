@@ -65,7 +65,6 @@ $isAdmin = $user_id === "a0" ? true : false;
             </div>
         </div>
     </div>
-
     <!-- <div class="container mt-5">
         <canvas id="pieChart" width="400" height="400"></canvas>
         <script></script>
