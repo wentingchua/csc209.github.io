@@ -91,7 +91,7 @@ function makeCartCards(productsInCart) {
         deleteBtn.className = "btn btn-danger btn-sm";
         deleteBtn.innerText = "Remove";
         deleteBtn.setAttribute("onclick",
-            `removeItemFromCart('${product["category"]}','${product_id}')`
+            `removeItemFromCart('${product["category"]}','${product_id}', ${product["quantity"]}, ${product["price"]})`
         );
         div4e.appendChild(deleteBtn);
 
@@ -145,9 +145,9 @@ function showAlert(alert) {
     alertDiv.appendChild(alertBox);
 }
 
-function removeItemFromCart(category, product_id) {
-    console.log("test")
+function removeItemFromCart(category, product_id, quantity, price) {
     const xhttp = new XMLHttpRequest();
+    handleSelectProduct(category, product_id, quantity, price, true)
     xhttp.onload = function () {
         if (JSON.parse(this.responseText) == "Success") {
             console.log("Success")
@@ -160,10 +160,10 @@ function removeItemFromCart(category, product_id) {
     xhttp.send();
 }
 
-function handleSelectProduct(category, product_id, quantity, price) {
+function handleSelectProduct(category, product_id, quantity, price, forceDeduct=false) {
     var checkbox = document.getElementById(`checkbox-${product_id}`)
     var totalStr = document.getElementById("totalAmount")
-    if (checkbox.checked) {
+    if (checkbox.checked && !forceDeduct) {
         nr_selected++;
         total += price * quantity;
         totalStr.innerText = `Total amount: $${total}`
