@@ -59,8 +59,10 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
     <div class="container">
         <!-- Additional feature for admin -->
         <?php if ($isAdmin): ?>
+            <br>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Add
                 product</button>
+            <br>
         <?php else: ?>
         <?php endif; ?>
         <!-- Add Product Modal -->
@@ -130,19 +132,19 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                 <button type="button" class="btn btn-secondary">444444444444</button>
             </div>
         </div>
-        <div class="dropdown">
+        <!-- <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 id="dropdownButton" aria-expanded="false">
                 Select category
             </button>
             <div id="categoryDropdown"></div>
-        </div>
+        </div> -->
         <br>
         <div id="productCards">
         </div>
     </div>
     <script>
-        makeDropdown(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
+        // makeDropdown(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
         makeButtonGroup(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
         handleCategorySelect(<?php echo json_encode($productCategories) ?>, <?php echo json_encode($productCategories[0]) ?>, isAdmin, isLoggedIn) //default
     </script>

@@ -4,7 +4,6 @@ session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $user_id = $isLoggedIn ? $_SESSION['user_id'] : '';
 $isAdmin = $user_id === "a0" ? true : false;
-$user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 ?>
 
 <!DOCTYPE html>
