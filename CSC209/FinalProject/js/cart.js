@@ -160,10 +160,10 @@ function removeItemFromCart(category, product_id, quantity, price) {
     xhttp.send();
 }
 
-function handleSelectProduct(category, product_id, quantity, price, forceDeduct=false) {
+function handleSelectProduct(category, product_id, quantity, price, removingItem = false) {
     var checkbox = document.getElementById(`checkbox-${product_id}`)
     var totalStr = document.getElementById("totalAmount")
-    if (checkbox.checked && !forceDeduct) {
+    if (checkbox.checked && !removingItem) {
         nr_selected++;
         total += price * quantity;
         totalStr.innerText = `Total amount: $${total}`
@@ -172,6 +172,8 @@ function handleSelectProduct(category, product_id, quantity, price, forceDeduct=
         }
         selected_products[category][product_id] = quantity;
         console.log(selected_products);
+    } else if (!checkbox.checked && removingItem) {
+        return;
     } else {
         nr_selected--;
         total -= price * quantity;
