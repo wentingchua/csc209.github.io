@@ -59,6 +59,7 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         img.setAttribute("id", `img-${product_id}`)
         img.setAttribute("width", 250)
         img.setAttribute("height", 250)
+        img.setAttribute("style", "object-fit: cover")
         getImagePath(category, product_id).then(x => img.setAttribute("src", `products/${category}/${x}`))
 
         const cardBody = document.createElement("div");
