@@ -7,7 +7,7 @@ function makeDropdown(productCategories, isAdmin, isLogin) {
         const linkWrapper = document.createElement("li");
         const aWrapper = document.createElement("a");
         aWrapper.setAttribute("class", "dropdown-item");
-        aWrapper.setAttribute("onclick", `handleCategorySelect('${productCategories[i]}', ${isAdmin}, ${isLogin})`)
+        aWrapper.setAttribute("onclick", `handleCategorySelect(${JSON.stringify(productCategories)}, '${productCategories[i]}', ${isAdmin}, ${isLogin})`)
         aWrapper.innerText = productCategories[i]
         linkWrapper.appendChild(aWrapper);
         ulWrapper.appendChild(linkWrapper);
@@ -15,9 +15,33 @@ function makeDropdown(productCategories, isAdmin, isLogin) {
     dropdown.appendChild(ulWrapper);
 }
 
-function handleCategorySelect(category, isAdmin, isLogin) {
-    const dropdownButton = document.getElementById("dropdownButton");
-    dropdownButton.innerText = category;
+function makeButtonGroup(productCategories, isAdmin, isLogin) {
+    const buttons = document.getElementById("categoryButtons");
+    buttons.innerHTML = '';
+    for (let i = 0; i < productCategories.length; i++) {
+        const button = document.createElement("button");
+        button.setAttribute("id", `categoryButton-${productCategories[i]}`)
+        button.setAttribute("class", "btn btn-secondary");
+        button.setAttribute("type", "button");
+        button.innerText = productCategories[i];
+        button.setAttribute("onclick", `handleCategorySelect(${JSON.stringify(productCategories)}, '${productCategories[i]}', ${isAdmin}, ${isLogin})`)
+        buttons.appendChild(button);
+    }
+}
+
+function changeButtonColor(productCategories, selectedCategory) {
+    for (let i = 0; i < productCategories.length; i++) {
+        const categoryButton = document.getElementById(`categoryButton-${productCategories[i]}`)
+        if (productCategories[i] == selectedCategory) {
+            categoryButton.setAttribute("class", "btn btn-primary")
+        } else {
+            categoryButton.setAttribute("class", "btn btn-secondary")
+        }
+    }
+}
+
+function handleCategorySelect(productCategories, category, isAdmin, isLogin) {
+    changeButtonColor(productCategories, category);
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         products = JSON.parse(this.responseText)

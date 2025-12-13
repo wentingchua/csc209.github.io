@@ -122,6 +122,14 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
         </div>
         <!-- Product Category Dropdown -->
         <br>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div id="categoryButtons" class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary">111111111111</button>
+                <button type="button" class="btn btn-secondary">22122</button>
+                <button type="button" class="btn btn-secondary">33</button>
+                <button type="button" class="btn btn-secondary">444444444444</button>
+            </div>
+        </div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 id="dropdownButton" aria-expanded="false">
@@ -135,7 +143,8 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
     </div>
     <script>
         makeDropdown(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
-        handleCategorySelect(<?php echo json_encode($productCategories[0]) ?>, isAdmin, isLoggedIn) //default
+        makeButtonGroup(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
+        handleCategorySelect(<?php echo json_encode($productCategories) ?>, <?php echo json_encode($productCategories[0]) ?>, isAdmin, isLoggedIn) //default
     </script>
 </body>
 
