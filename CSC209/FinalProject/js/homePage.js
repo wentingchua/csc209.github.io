@@ -27,6 +27,12 @@ function handleCategorySelect(category, isAdmin, isLogin) {
     xhttp.send()
 }
 
+function getImagePath(category, imageId) {
+    return fetch(
+        `php/homePage/productImagePath.php?category=${category}&product_id=${imageId}`
+    ).then(x => x.json())
+}
+
 function makeProductCards(category, products, isAdmin, isLogin) {
     const productDiv = document.getElementById("productCards");
     productDiv.innerHTML = '';
@@ -51,7 +57,9 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         const img = document.createElement("img");
         img.setAttribute("class", "card-img-top");
         img.setAttribute("id", `img-${product_id}`)
-        img.setAttribute("src", `products/${category}/${product_id}.png`);
+        img.setAttribute("width", 250)
+        img.setAttribute("height", 250)
+        getImagePath(category, product_id).then(x => img.setAttribute("src", `products/${category}/${x}`))
 
         const cardBody = document.createElement("div");
         cardBody.setAttribute("class", "card-body");
@@ -99,7 +107,7 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         cardBody.appendChild(cardPrice);
         cardBody.appendChild(cardStock);
         cardBody.appendChild(cardDescription);
-        cardBody.appendChild(linkToDetail);
+        // cardBody.appendChild(linkToDetail);
         if (!isAdmin) {
             cardBody.appendChild(addToCart);
             new bootstrap.Tooltip(addToCart);
