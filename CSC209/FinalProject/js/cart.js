@@ -47,7 +47,10 @@ function makeCartCards(productsInCart) {
         div4a.setAttribute("class", "col-md-2");
         var img = document.createElement("img");
         img.setAttribute("class", "img-fluid rounded-3");
-        img.setAttribute("src", `../products/${product["category"]}/${product_id}.png`);
+        img.setAttribute("width", 200)
+        img.setAttribute("height", 200)
+        img.setAttribute("style", "object-fit: cover")
+        img.setAttribute("src", `../products/${product["category"]}/${product["image_path"]}`);
         div4a.appendChild(img);
 
         // Title & Description

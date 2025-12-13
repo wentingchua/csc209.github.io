@@ -17,6 +17,7 @@ foreach ($cart as $category => $items) {
             "title" => $product_info["title"],
             "price" => $product_info["price"],
             "description" => $product_info["description"],
+            "image_path" => $product_info["image_path"]
         ];
         $fullCart[$product_id] = $cart_product;
     }
