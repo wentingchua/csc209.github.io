@@ -27,12 +27,6 @@ function handleCategorySelect(category, isAdmin, isLogin) {
     xhttp.send()
 }
 
-function getImagePath(category, imageId) {
-    return fetch(
-        `php/homePage/productImagePath.php?category=${category}&product_id=${imageId}`
-    ).then(x => x.json())
-}
-
 function makeProductCards(category, products, isAdmin, isLogin) {
     const productDiv = document.getElementById("productCards");
     productDiv.innerHTML = '';
@@ -60,7 +54,7 @@ function makeProductCards(category, products, isAdmin, isLogin) {
         img.setAttribute("width", 250)
         img.setAttribute("height", 250)
         img.setAttribute("style", "object-fit: cover")
-        getImagePath(category, product_id).then(x => img.setAttribute("src", `products/${category}/${x}`))
+        img.setAttribute("src", `products/${category}/${product["image_path"]}`)
 
         const cardBody = document.createElement("div");
         cardBody.setAttribute("class", "card-body");

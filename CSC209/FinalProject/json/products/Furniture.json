@@ -1,1 +1,23 @@
-{"p17":{"title":"Sofa","price":"100","stock":"100","description":"Comfortable.","reviews":[]}}
+{
+    "p17": {
+        "title": "Sofa",
+        "price": "100",
+        "stock": 87,
+        "description": "Nice sofa",
+        "image_path": "p17.jpg"
+    },
+    "p18": {
+        "title": "Sofa",
+        "price": "33",
+        "stock": 100,
+        "description": "Comfy sofa",
+        "image_path": "p18.jpg"
+    },
+    "p19": {
+        "title": "Sofa",
+        "price": "90",
+        "stock": "1000",
+        "description": "Cheap",
+        "image_path": "p19.jpg"
+    }
+}
