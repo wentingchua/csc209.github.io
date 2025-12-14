@@ -106,6 +106,8 @@ function makeCartCards(productsInCart) {
         div1.appendChild(div2);
         cart.appendChild(div1);
     }
+    var selectAllCheckBox = document.getElementById("checkAll")
+    selectAllCheckBox.setAttribute("onchange", `handleSelectAll(${JSON.stringify(productsInCart)})`)
 }
 
 function handlePaymentButtonPressed() {
@@ -171,7 +173,6 @@ function handleSelectProduct(category, product_id, quantity, price, removingItem
             selected_products[category] = {};
         }
         selected_products[category][product_id] = quantity;
-        console.log(selected_products);
     } else if (!checkbox.checked && removingItem) {
         return;
     } else {
@@ -179,6 +180,27 @@ function handleSelectProduct(category, product_id, quantity, price, removingItem
         total -= price * quantity;
         totalStr.innerText = `Total amount: $${total}`
         delete selected_products[category][product_id];
-        console.log(selected_products);
+    }
+}
+
+function handleSelectAll(products_in_cart) {
+    var selectAllCheckBox = document.getElementById("checkAll");
+    for (const product_id in products_in_cart) {
+        var product = products_in_cart[product_id]
+        if (selectAllCheckBox.checked) {
+            if (product["stock"] != 0) {
+                var checkbox = document.getElementById(`checkbox-${product_id}`)
+                if (!checkbox.checked) {
+                    checkbox.checked = true
+                    handleSelectProduct(product["category"], `${product_id}`, product["quantity"], product["price"])
+                }
+            }
+        } else {
+            if (product["stock"] != 0) {
+                var checkbox = document.getElementById(`checkbox-${product_id}`)
+                checkbox.checked = false
+                handleSelectProduct(product["category"], `${product_id}`, product["quantity"], product["price"])
+            }
+        }
     }
 }

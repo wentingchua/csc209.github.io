@@ -63,6 +63,13 @@ $isAdmin = $user_id === "a0" ? true : false;
                     </div>
                     <div id="cartAlert" class="col-10">
                     </div>
+                    <div class="col-10">
+                        <input class="form-check-input" type="checkbox" id="checkAll">
+                        <label class="form-check-label" for="checkAll">
+                            <h5 class="fw-normal mb-0">Select All</h5>
+                        </label>
+                    </div>
+                    <br>
                     <div id="cart-section" class="col-10">
                     </div>
                     <div class="col-10">
