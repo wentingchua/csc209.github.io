@@ -4,7 +4,6 @@ session_start();
 $isLoggedIn = isset($_SESSION['user_id']);
 $user_id = $isLoggedIn ? $_SESSION['user_id'] : '';
 $isAdmin = $user_id === "a0" ? true : false;
-$user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 ?>
 
 <!DOCTYPE html>
@@ -76,11 +75,6 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                     </div>
                     <div class="modal-body">
                         <form action="php/homePage/addProduct.php" method="POST" enctype="multipart/form-data">
-                            <!-- Dropdown for inside new product modal -->
-                            <!-- <div class="mb-3">
-                                <label for="createCategoryPrompt" class="form-label">Create new category</label>
-                                <input type="checkbox" name="createCategoryPrompt" id="createCategoryPrompt">
-                            </div> -->
                             <div class="mb-3">
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -132,22 +126,13 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                 <button type="button" class="btn btn-secondary">444444444444</button>
             </div>
         </div>
-        <!-- <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                id="dropdownButton" aria-expanded="false">
-                Select category
-            </button>
-            <div id="categoryDropdown"></div>
-        </div> -->
         <br>
         <div id="productCards">
         </div>
     </div>
     <script>
-        // makeDropdown(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
         makeButtonGroup(<?php echo json_encode($productCategories) ?>, isAdmin, isLoggedIn)
         handleCategorySelect(<?php echo json_encode($productCategories) ?>, <?php echo json_encode($productCategories[0]) ?>, isAdmin, isLoggedIn) //default
     </script>
 </body>
-
 </html>

@@ -37,8 +37,3 @@ function generateBarChartSalesByProfit() {
     xhttp.open("GET", "../php/overview/profitSales.php");
     xhttp.send();
 }
-
-// function generatePieChart() {
-//     const ctx = document.getElementById("pieChart").getContext('2d');
-    
-// }

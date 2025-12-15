@@ -141,6 +141,7 @@ function makeProductCards(category, products, isAdmin, isLogin) {
     productDiv.appendChild(row);
 }
 
+//This is for the dropdown that appears in the 'New Product Modal'
 function makeDropdownForNewProduct(productCategories) {
     const dropdown = document.getElementById("categoryDropdownNewProduct");
     dropdown.innerHTML = '';
@@ -180,14 +181,15 @@ function animateAddCart(product_id) {
     const ori_img = document.getElementById("img-" + product_id);
     const cart = document.getElementById("cartIcon");
 
+    //Create clone of image
     const cloned = ori_img.cloneNode(true);
     cloned.id = product_id + "-clone";
-    cloned.style.position = "absolute";
+    cloned.style.position = "absolute"; //Make clone appear on highest layer
     cloned.style.zIndex = "9999";
 
     parent.appendChild(cloned);
 
-    const ori_img_pos = ori_img.getBoundingClientRect();
+    const ori_img_pos = ori_img.getBoundingClientRect(); //Returns position of element relative to view port
     const parent_pos = parent.getBoundingClientRect();
     const cart_pos = cart.getBoundingClientRect();
 
@@ -237,7 +239,7 @@ function handleAddToCart(category, product_id) {
     xhttp.onload = function () {
         const resp = this.responseText.trim();
         if (resp === "Add Success") {
-            //
+            console.log("Add to cart success")
         } else {
             console.error("Add to cart failed", resp);
         }
