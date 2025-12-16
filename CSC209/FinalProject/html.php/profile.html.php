@@ -16,7 +16,9 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
     <script>
         var isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false' ?>;
         var userDetails = <?php echo $isLoggedIn ? json_encode(getUserDetails($user_id)) : 'null' ?>;
-        console.log(userDetails);
+        var userId = <?php echo $isLoggedIn ? json_encode($user_id) : "" ?>;
+        console.log("test")
+        console.log(userId)
     </script>
     <script src="../js/profile.js"></script>
 </head>
@@ -54,8 +56,38 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 
     <div class="container mt-5">
         <?php if ($isLoggedIn): ?>
-            <h1>Welcome to your page, <?php echo htmlspecialchars($user_details["username"]) ?></h1>
             <button onclick="handleLogout()" type="button" class="btn btn-danger mt-3">Log out</button>
+            <h1>Welcome to your page, <?php echo htmlspecialchars($user_details["username"]) ?></h1>
+            <?php if (!$isAdmin): ?>
+                <h4>Your information</h4>
+                <table class="table table-bordered">
+                    <tbody id="userInformationTable">
+                        <tr>
+                            <th style="width: 20%">Username</th>
+                            <td id="usernameRow"></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Password</th>
+                            <td id="passwordRow"></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Shipping Address</th>
+                            <td id="addressRow"></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Email</th>
+                            <td id="emailRow"></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%">Contact</th>
+                            <td id="contactRow"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <script>updateUserDetailsTable(userDetails)</script>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="fillEditModal(userDetails, userId)"
+                    data-bs-target="#editUserModal">Edit</button>
+            <?php endif; ?>
         <?php else: ?>
             <h2>Click on the Login button or Register if you do not have an account</h2>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
@@ -129,7 +161,44 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
 
     <form id="logoutForm" action="../php/auth/logout.php" method="POST"></form>
 
-
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Update information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../php/auth/update.php" method="POST">
+                        <input type="hidden" id="userId" name="userId">
+                        <div class="mb-3">
+                            <label for="updateUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="updateUsername" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updatePassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="updatePassword" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="updateEmail" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateContact" class="form-label">Contact</label>
+                            <input type="text" class="form-control" id="updateContact" name="contact" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateAddress" class="form-label">Shipping Address</label>
+                            <textarea class="form-control" id="updateAddress" name="shipping_address" rows="3"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Update information</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
