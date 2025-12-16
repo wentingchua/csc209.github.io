@@ -174,11 +174,11 @@ $user_details = $isLoggedIn ? getUserDetails($user_id) : '';
                         <input type="hidden" id="userId" name="userId">
                         <div class="mb-3">
                             <label for="updateUsername" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="updateUsername" name="username" required>
+                            <input type="text" class="form-control" id="updateUsername" name="username" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
                             <label for="updatePassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="updatePassword" name="password" required>
+                            <input type="password" class="form-control" id="updatePassword" name="password" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
                             <label for="updateEmail" class="form-label">Email</label>
