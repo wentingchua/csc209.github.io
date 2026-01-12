@@ -1,0 +1,23 @@
+{
+    "p5": {
+        "title": "Trash bag",
+        "price": 99999,
+        "stock": 0,
+        "description": "Limited edition trash bag.",
+        "image_path": "p5.png"
+    },
+    "p6": {
+        "title": "BIG BIG BAG",
+        "price": 1,
+        "stock": 0,
+        "description": "Plzzz help to clear stock",
+        "image_path": "p6.png"
+    },
+    "p11": {
+        "title": "TEST",
+        "price": 111,
+        "stock": 198,
+        "description": "DW",
+        "image_path": "p11.png"
+    }
+}

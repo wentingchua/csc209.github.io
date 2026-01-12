@@ -1,0 +1,23 @@
+{
+    "p12": {
+        "title": "Chips",
+        "price": "4",
+        "stock": 87,
+        "description": "Nice chips",
+        "image_path": "p12.png"
+    },
+    "p14": {
+        "title": "another bag of chips",
+        "price": "33",
+        "stock": 3323,
+        "description": "vgd",
+        "image_path": "p14.png"
+    },
+    "p16": {
+        "title": "Snack",
+        "price": "100",
+        "stock": "1000",
+        "description": "good",
+        "image_path": "p16.jpg"
+    }
+}

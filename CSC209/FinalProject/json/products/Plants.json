@@ -1,0 +1,9 @@
+{
+    "p15": {
+        "title": "A plant",
+        "price": "111",
+        "stock": 101,
+        "description": "wefWG",
+        "image_path": "p15.png"
+    }
+}
